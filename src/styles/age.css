@@ -1,0 +1,23 @@
+.age {
+  display: flex;
+  background-color: #e8dcb8;
+  padding: 5%;
+  line-height: 8vh;
+  font-size: 4vh;
+  border-bottom: 2px solid black;
+  justify-content: space-between;
+}
+h1 {
+  text-align: center;
+}
+.btn-age {
+  display: flex;
+  align-items: flex-end;
+}
+button {
+  font-size: 3vh;
+  height: 8vh;
+  width: 15vh;
+  border-radius: 10%;
+  background-color: #2791d8;
+}
