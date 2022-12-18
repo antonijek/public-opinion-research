@@ -1,8 +1,16 @@
 .header {
   height: 10vh;
   border-bottom: 2px solid black;
+  display: flex;
+  justify-content: center;
 }
 
 h2 {
   text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  .header {
+    justify-content: space-evenly;
+  }
 }

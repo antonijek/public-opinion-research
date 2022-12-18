@@ -1,0 +1,18 @@
+.add {
+  background-color: #2791d8;
+  width: 4vw;
+  height: 4vw;
+}
+.remove {
+  background-color: red;
+  width: 4vw;
+  height: 4vw;
+}
+.submit-btn {
+  padding: 1vw;
+  border-radius: 10%;
+  background-color: #2791d8;
+  margin-top: 2vw;
+
+  margin-top: 10vw;
+}

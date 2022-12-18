@@ -1,8 +1,8 @@
 import React from "react";
 
-const Sex = ({ changeSex, changeSlider, sex }) => {
+const Sex = ({ changeSex, changeSlider, sex, style }) => {
   return (
-    <div>
+    <div className={style}>
       <h1>Choose sex</h1>
       <form className="age">
         <div>
@@ -26,10 +26,7 @@ const Sex = ({ changeSex, changeSlider, sex }) => {
           <br />
         </div>
         <div className="btn-age">
-          <button
-            disabled={!sex}
-            onClick={(e) => changeSlider(e, "occupation")}
-          >
+          <button disabled={!sex} onClick={(e) => changeSlider("occupation")}>
             Next
           </button>
         </div>

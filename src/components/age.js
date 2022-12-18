@@ -1,8 +1,8 @@
 import { React } from "react";
 import "../styles/age.css";
-const Age = ({ changeAge, changeSlider, age }) => {
+const Age = ({ changeAge, changeSlider, age, style }) => {
   return (
-    <div>
+    <div className={style}>
       <h1>How old are you?</h1>
       <form className="age">
         <div>
@@ -53,7 +53,7 @@ const Age = ({ changeAge, changeSlider, age }) => {
           <br />
         </div>
         <div className="btn-age">
-          <button disabled={!age} onClick={(e) => changeSlider(e, "sex")}>
+          <button disabled={!age} onClick={(e) => changeSlider("sex")}>
             Next
           </button>
         </div>

@@ -2,11 +2,15 @@ import { React, useState } from "react";
 import Occupation from "./occupation";
 import Sex from "./sex";
 import Age from "./age";
+import DailyQusetion from "./dailyQusetion";
+import "../styles/age.css";
+
 const BasicInformation = () => {
   const [age, setAge] = useState(false);
   const [sex, setSex] = useState(false);
   const [occupation, setOccupation] = useState(false);
   const [slider, setSlider] = useState("age");
+  const [style, setStyle] = useState("");
 
   const changeAge = (e) => {
     setAge(e.target.value);
@@ -17,26 +21,40 @@ const BasicInformation = () => {
   const changeOccupation = (e) => {
     setOccupation(e.target.value);
   };
-  const changeSlider = (e, str) => {
-    e.preventDefault();
-    console.log("test");
+  const changeSlider = (str) => {
+    console.log(str);
     setSlider(str);
+    setStyle("age-comp");
+  };
+  const submitBasicInformation = (e) => {
+    changeSlider("question");
   };
 
   return (
     <div>
       {slider === "age" ? (
-        <Age changeAge={changeAge} changeSlider={changeSlider} age={age} />
+        <Age
+          changeAge={changeAge}
+          changeSlider={changeSlider}
+          age={age}
+          style={style}
+        />
       ) : slider === "sex" ? (
-        <Sex changeSex={changeSex} changeSlider={changeSlider} sex={sex} />
+        <Sex
+          changeSex={changeSex}
+          changeSlider={changeSlider}
+          sex={sex}
+          style={style}
+        />
       ) : slider === "occupation" ? (
         <Occupation
           changeOccupation={changeOccupation}
-          changeSlider={changeSlider}
           occupation={occupation}
-          age={age}
-          sex={sex}
+          style={style}
+          submitBasicInformation={submitBasicInformation}
         />
+      ) : slider === "question" ? (
+        <DailyQusetion />
       ) : null}
     </div>
   );

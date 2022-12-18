@@ -1,6 +1,22 @@
+@keyframes move {
+  0% {
+    left: 100%;
+    top: 0px;
+  }
+  100% {
+    left: 0%;
+    top: 0%;
+  }
+}
+
+.age-comp {
+  animation-name: move;
+  animation-duration: 0.5s;
+  position: relative;
+}
+
 .age {
   display: flex;
-  background-color: #e8dcb8;
   padding: 5%;
   line-height: 8vh;
   font-size: 4vh;
@@ -20,4 +36,7 @@ button {
   width: 15vh;
   border-radius: 10%;
   background-color: #2791d8;
+}
+.answer {
+  margin-left: 70%;
 }
