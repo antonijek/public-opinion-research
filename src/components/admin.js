@@ -41,7 +41,7 @@ const Admin = ({ data, setData, rows }) => {
           sx={{
             width: "100vw",
             height: "100vh",
-            maxWidth: { sm: "35%", md: "20%" },
+            maxWidth: { sm: "35%", md: "20%", minWidth: "15vw" },
             bgcolor: "#1976d2",
             color: "white",
             display: { xs: "none", sm: "block" },
