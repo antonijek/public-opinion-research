@@ -1,12 +1,21 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import Loader from "./loader";
+import { QuestionnaireContext } from "../components/questionnaireContext";
 
-const Anket = ({ data }) => {
-  const [loader, setLoader] = useState(false);
+const Questionnaire = ({ width }) => {
+  const { data } = useContext(QuestionnaireContext);
+  const [loader] = useState(false);
 
   return (
-    <Box sx={{ textAlign: "center", backgroundColor: "red", minWidth: "40%" }}>
+    <Box
+      sx={{
+        textAlign: "center",
+        backgroundColor: "#f44336",
+        width: { width },
+        height: "80vh",
+      }}
+    >
       <Typography
         sx={{
           fontSize: { xs: "6vw", sm: "4vw", lg: "3vw" },
@@ -67,4 +76,4 @@ const Anket = ({ data }) => {
   );
 };
 
-export default Anket;
+export default Questionnaire;

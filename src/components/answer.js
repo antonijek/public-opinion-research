@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Box, Divider, Avatar, TextField, Typography } from "@mui/material";
+import { TextField } from "@mui/material";
 
 const Answer = ({ myForm, handleChange, num }) => {
   return (

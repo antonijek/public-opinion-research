@@ -5,8 +5,12 @@ import BasicInformation from "./basicInformation";
 import Header from "./header";
 import Footer from "./footer";
 import Admin from "./admin";
-import Anket from "./anket";
+import Questionnaire from "./questionnaire";
+import Login from "./login";
 import { getData } from "../api";
+import { QuestionnaireContext } from "./questionnaireContext";
+
+let token = localStorage.getItem("token");
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -14,7 +18,7 @@ const App = () => {
 
   const getAnkets = async () => {
     try {
-      let res = await getData();
+      let res = await getData(token);
       setData(res.data[res.data.length - 1]);
       setRows(res.data);
     } catch (err) {
@@ -26,22 +30,26 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <QuestionnaireContext.Provider
+        value={{ data, setData, rows: rows, token }}
+      >
         <Header />
+        <div className="app">
+          <Routes>
+            {token !== null ? (
+              <Route path="/" element={<Questionnaire />} />
+            ) : (
+              <Route exact path="/" element={<BasicInformation />} />
+            )}
 
-        <Routes>
-          <Route exact path="/" element={<BasicInformation />} />
-          <Route
-            path="/admin"
-            element={<Admin data={data} setData={setData} rows={rows} />}
-          />
-          <Route path="/anket" element={<Anket data={data} />} />
-        </Routes>
-
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
+          </Routes>
+        </div>
         <Footer />
-      </BrowserRouter>
-    </div>
+      </QuestionnaireContext.Provider>
+    </BrowserRouter>
   );
 };
 

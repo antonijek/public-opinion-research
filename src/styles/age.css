@@ -20,11 +20,13 @@
   padding: 5%;
   line-height: 8vh;
   font-size: 4vh;
-  border-bottom: 2px solid black;
+
   justify-content: space-between;
 }
 h1 {
   text-align: center;
+  padding-top: 2%;
+  margin: 0;
 }
 .btn-age {
   display: flex;

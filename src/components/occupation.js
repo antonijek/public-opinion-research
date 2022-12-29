@@ -1,10 +1,13 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "../styles/occupation.css";
 import "../styles/loader.css";
-import { useNavigate } from "react-router-dom";
 
 const Occupation = ({ changeOccupation, occupation, style }) => {
-  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("token", "nesto");
+    window.location.href = "http://localhost:3000/";
+  };
 
   return (
     <div className={style}>
@@ -68,14 +71,8 @@ const Occupation = ({ changeOccupation, occupation, style }) => {
         </div>
 
         <div className="btn-age">
-          <button
-            disabled={!occupation}
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/anket");
-            }}
-          >
-            Next
+          <button disabled={!occupation} onClick={(e) => handleSubmit(e)}>
+            Submit
           </button>
         </div>
       </form>

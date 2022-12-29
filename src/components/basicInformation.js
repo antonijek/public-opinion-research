@@ -31,7 +31,7 @@ const BasicInformation = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       {slider === "age" ? (
         <Age
           changeAge={changeAge}

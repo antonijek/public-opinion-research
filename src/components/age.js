@@ -1,4 +1,5 @@
 import { React } from "react";
+
 import "../styles/age.css";
 const Age = ({ changeAge, changeSlider, age, style }) => {
   return (
