@@ -1,6 +1,7 @@
 import { React, useState, useContext } from "react";
 import NewQuestionnaire from "./newQuestionnaire";
 import "../styles/admin.css";
+import { deleteData } from "../api/index";
 import { DataGrid } from "@mui/x-data-grid";
 import EditSharpIcon from "@mui/icons-material/EditSharp";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -23,14 +24,33 @@ import ShowChartSharpIcon from "@mui/icons-material/ShowChartSharp";
 import { QuestionnaireContext } from "../components/questionnaireContext";
 
 const Admin = () => {
-  const { rows } = useContext(QuestionnaireContext);
-  const [newForm, setNewForm] = useState(false);
+  const { rows, setRows, currentResearch, setCurrentResearch, token } =
+    useContext(QuestionnaireContext);
 
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(token);
   const renderEditIcon = () => {
     return <EditSharpIcon />;
   };
   const renderDeleteIcon = () => {
     return <DeleteIcon />;
+  };
+  const handleClick = async (e) => {
+    if (e.field === "edit") {
+      setCurrentResearch(rows[e.id - 1]);
+      setIsOpen(true);
+    }
+    if (e.field === "delete") {
+      let res = await deleteData(e.id, token);
+      let copy = [...rows];
+      let filteredRows = copy.filter((item) => item.id !== e.id);
+      setRows(filteredRows);
+    }
+  };
+
+  const makeNewResearch = () => {
+    setCurrentResearch(rows[rows.length - 1]);
+    setIsOpen(true);
   };
 
   const columns = [
@@ -100,7 +120,7 @@ const Admin = () => {
             <ListItem
               disablePadding
               sx={{ mt: "-5%" }}
-              onClick={() => setNewForm(true)}
+              onClick={makeNewResearch}
             >
               <ListItemButton>
                 <ListItemIcon>
@@ -112,14 +132,16 @@ const Admin = () => {
           </List>
         </nav>
       </Box>
-      {newForm ? (
+      {isOpen ? (
         <Box className="wraper">
           <NewQuestionnaire />
-          <Questionnaire width="40vw" />
+          <Questionnaire width="40vw" data={currentResearch} />
         </Box>
       ) : (
         <Box sx={{ color: "white", height: "50vh", width: "100%" }}>
           <DataGrid
+            disableSelectionOnClick
+            onCellClick={(e) => handleClick(e)}
             rows={rows}
             columns={columns}
             pageSize={5}

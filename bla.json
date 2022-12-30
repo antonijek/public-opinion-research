@@ -145,42 +145,6 @@
       ]
     },
     {
-      "id": 5,
-      "title": "Luka Perastp",
-      "date": "25.11.2022",
-      "method": "anketa",
-      "questions": [
-        {
-          "title": "prvo pitanje",
-          "options": [
-            {
-              "option": "bla"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        },
-        {
-          "title": "drugo pitanje",
-          "options": [
-            {
-              "option": "blasko"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": 6,
       "title": "Luka Risan",
       "date": "25.11.2022",
@@ -924,47 +888,6 @@
         {
           "title": "MIco",
           "options": [
-            {
-              "option": "Pcelar"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 29,
-      "title": "Dritan",
-      "date": "25.11.2022",
-      "method": "anketa",
-      "questions": [
-        {
-          "title": "MIco",
-          "options": [
-            {
-              "option": "programer"
-            },
-            {
-              "option": "Pcelar"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 30,
-      "title": "Dritan",
-      "date": "25.11.2022",
-      "method": "anketa",
-      "questions": [
-        {
-          "title": "MIco",
-          "options": [
-            {
-              "option": "programer"
-            },
-            {
-              "option": "Varioc"
-            },
             {
               "option": "Pcelar"
             }

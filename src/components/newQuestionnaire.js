@@ -5,7 +5,7 @@ import useNewQuestionnaire from "../hooks/useNewQuestionnaire";
 
 const NewQuestionnaire = () => {
   const {
-    data,
+    currentResearch,
     addAnswer,
     addQuestion,
     removeAnswer,
@@ -22,13 +22,13 @@ const NewQuestionnaire = () => {
         sx={{ mb: "5%", mt: "3%", width: "50%", justifyContent: "center" }}
         variant="standard"
         name="title"
-        value={data.title}
+        value={currentResearch.title}
         label="Title"
         inputProps={{ style: { textAlign: "center" } }}
         onChange={(e) => handleChange(e)}
       />
 
-      {data.questions.map((question, i) => (
+      {currentResearch.questions.map((question, i) => (
         <div key={i}>
           <Box>
             <TextField

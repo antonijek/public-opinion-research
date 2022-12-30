@@ -3,8 +3,8 @@ import { Box, Typography } from "@mui/material";
 import Loader from "./loader";
 import { QuestionnaireContext } from "../components/questionnaireContext";
 
-const Questionnaire = ({ width }) => {
-  const { data } = useContext(QuestionnaireContext);
+const Questionnaire = ({ width, data }) => {
+  //const { data } = useContext(QuestionnaireContext);
   const [loader] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ const Questionnaire = ({ width }) => {
         textAlign: "center",
         backgroundColor: "#f44336",
         width: { width },
-        height: "80vh",
+        minHeight: "80vh",
       }}
     >
       <Typography

@@ -13,14 +13,14 @@ import { QuestionnaireContext } from "./questionnaireContext";
 let token = localStorage.getItem("token");
 
 const App = () => {
-  const [data, setData] = useState([]);
   const [rows, setRows] = useState([]);
+  const [currentResearch, setCurrentResearch] = useState([]);
 
   const getAnkets = async () => {
     try {
       let res = await getData(token);
-      setData(res.data[res.data.length - 1]);
       setRows(res.data);
+      setCurrentResearch(res.data[res.data.length - 1]);
     } catch (err) {
       console.log(err);
     }
@@ -28,17 +28,20 @@ const App = () => {
   useEffect(() => {
     getAnkets();
   }, []);
-
+  console.log(currentResearch);
   return (
     <BrowserRouter>
       <QuestionnaireContext.Provider
-        value={{ data, setData, rows: rows, token }}
+        value={{ currentResearch, setCurrentResearch, rows, setRows, token }}
       >
         <Header />
         <div className="app">
           <Routes>
             {token !== null ? (
-              <Route path="/" element={<Questionnaire />} />
+              <Route
+                path="/"
+                element={<Questionnaire data={currentResearch} />}
+              />
             ) : (
               <Route exact path="/" element={<BasicInformation />} />
             )}

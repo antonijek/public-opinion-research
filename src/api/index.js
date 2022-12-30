@@ -16,3 +16,11 @@ export const postData = (data, token) => {
     },
   });
 };
+
+export const deleteData = (id, token) => {
+  return axios.delete(`${baseUrl}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
