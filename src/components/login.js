@@ -42,16 +42,17 @@ const Login = () => {
         sx={{
           width: { xs: "90%", sm: "60%", md: "30%" },
           mx: "auto",
-
+          minHeight: { xs: "70vh", sm: "auto" },
           mt: { xs: "20%", md: "3%" },
           boxShadow: { md: "20px 20px 50px #9E9E9E" },
           p: { xs: 2, md: 8 },
+          backgroundColor: "white",
         }}
       >
         <Typography
           align="center"
           color="primary"
-          variant="h3"
+          variant="h4"
           gutterBottom
           component="div"
         >
@@ -83,6 +84,7 @@ const Login = () => {
           helperText={helperPass ? "Invalid password." : null}
         />
         <br />
+
         <Button
           href={"/"}
           type="submit"

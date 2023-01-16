@@ -1,3 +1,7 @@
 body {
-  background-color: rgb(241, 244, 245);
+  box-sizing: border-box;
+  background-color: #c5d6dd;
+
+  position: relative;
+  margin: 0;
 }

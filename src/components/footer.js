@@ -4,7 +4,12 @@ import "../styles/footer.css";
 const Footer = () => {
   return (
     <div className="footer">
-      <h2>Footer</h2>
+      <p>Copyright © 2023 Antonije Knezevic & Milutin Radonjic</p>
+      <img
+        src="../../social-networks.png"
+        className="social-networks"
+        alt="social"
+      />
     </div>
   );
 };

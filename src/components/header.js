@@ -4,10 +4,29 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header">
-      <h2>Header</h2>
-      <Link to="/login">
-        <h2 className="admin">Admin</h2>
+      <Link to="/">
+        <img
+          className="logo"
+          src="https://pos.org/wp-content/uploads/2019/12/icon2.png"
+          alt=""
+        />
       </Link>
+      <nav className="navbar">
+        <Link className="ankets-tab" to="/">
+          <h4> HOME </h4>
+        </Link>
+        <Link className="ankets-tab" to="/ankets">
+          <h4> ANKETE </h4>
+        </Link>
+
+        <Link to="/login">
+          <img
+            className="admin-logo"
+            src="https://icones.pro/wp-content/uploads/2022/07/icones-d-administration.png"
+            alt="admin"
+          />
+        </Link>
+      </nav>
     </div>
   );
 };

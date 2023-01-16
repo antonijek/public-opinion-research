@@ -1,18 +1,33 @@
 .footer {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 10vh;
+  box-sizing: border-box;
+  padding-inline: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  min-height: 10vh;
   width: 100%;
   text-align: center;
+  background-color: #d1e7dd;
+}
+.social-networks {
+  width: 20vw;
+  height: 10vw;
 }
 @media screen and (min-width: 600px) {
   .footer {
     position: fixed;
-    height: 10vh;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    text-align: center;
+    bottom: 0;
+    line-height: 0;
+  }
+  .social-networks {
+    width: 10vw;
+    height: 5vw;
+  }
+}
+@media screen and (min-width: 900px) {
+  .social-networks {
+    width: 6vw;
+    height: 3vw;
   }
 }

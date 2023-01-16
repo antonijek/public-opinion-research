@@ -4,11 +4,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BasicInformation from "./basicInformation";
 import Header from "./header";
 import Footer from "./footer";
-import Admin from "./admin";
+import SingleQuestionnaire from "./singleQuestionnaire";
 import Questionnaire from "./questionnaire";
 import Login from "./login";
 import { getData } from "../api";
 import { QuestionnaireContext } from "./questionnaireContext";
+import Admin from "./admin";
+import AnketList from "./anketList";
+import NewQuestionnaire from "./newQuestionnaire";
+import Cards from "./cards";
 
 let token = localStorage.getItem("token");
 
@@ -28,7 +32,7 @@ const App = () => {
   useEffect(() => {
     getAnkets();
   }, []);
-  console.log(currentResearch);
+
   return (
     <BrowserRouter>
       <QuestionnaireContext.Provider
@@ -39,6 +43,7 @@ const App = () => {
           <Routes>
             {token !== null ? (
               <Route
+                exact
                 path="/"
                 element={<Questionnaire data={currentResearch} />}
               />
@@ -47,7 +52,13 @@ const App = () => {
             )}
 
             <Route path="/login" element={<Login />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/ankets" element={<AnketList />} />
+            <Route exact path="/admin" element={<Admin />} />
+            <Route exact path="/cards" element={<Cards />} />
+            <Route
+              path="/questionnaire/:id"
+              element={<SingleQuestionnaire />}
+            />
           </Routes>
         </div>
         <Footer />

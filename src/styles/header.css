@@ -2,15 +2,51 @@
   height: 10vh;
   border-bottom: 2px solid black;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d1e7dd;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 h2 {
   text-align: center;
 }
-
+.admin-logo {
+  width: 30px;
+  height: 30px;
+}
+.logo {
+  width: 60px;
+  height: 60px;
+}
+.ankets-tab {
+  text-decoration-line: none;
+  color: rgb(86, 88, 86);
+  font-size: 3vw;
+}
+.navbar {
+  display: flex;
+  width: 40vw;
+  justify-content: space-between;
+  align-items: center;
+}
 @media screen and (min-width: 600px) {
   .header {
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar {
+    width: 20vw;
+  }
+  .ankets-tab {
+    text-decoration-line: none;
+    color: rgb(86, 88, 86);
+    font-size: 1.5vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .ankets-tab {
+    font-size: 1.3vw;
   }
 }

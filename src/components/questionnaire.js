@@ -1,17 +1,15 @@
 import { React, useState, useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import Loader from "./loader";
-import { QuestionnaireContext } from "../components/questionnaireContext";
 
 const Questionnaire = ({ width, data }) => {
-  //const { data } = useContext(QuestionnaireContext);
   const [loader] = useState(false);
 
   return (
     <Box
       sx={{
         textAlign: "center",
-        backgroundColor: "#f44336",
+        backgroundColor: "#C5D6DD",
         width: { width },
         minHeight: "80vh",
       }}

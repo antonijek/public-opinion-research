@@ -8,6 +8,13 @@ export const getData = (token) => {
     },
   });
 };
+export const getOne = (id, token) => {
+  return axios(`${baseUrl}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 export const postData = (data, token) => {
   return axios.post(baseUrl, data, {

@@ -58,9 +58,9 @@ const useNewQuestionnaire = () => {
     let copy = { ...currentResearch };
     let x = copy.questions[question].options;
     let spreadAnswer = x
-      .slice(0, answer)
+      .slice(0, answer + 1)
       .concat({ option: "" })
-      .concat(x.slice(answer));
+      .concat(x.slice(answer + 1));
     copy.questions[question].options = spreadAnswer;
 
     setCurrentResearch(copy);
