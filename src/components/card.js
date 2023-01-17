@@ -2,27 +2,21 @@ import React from "react";
 import { Box, Card, CardContent, Typography, CardMedia } from "@mui/material";
 import FaceIcon from "@mui/icons-material/Face";
 
-const OneCard = ({ title }) => {
+const OneCard = ({ title, img }) => {
   return (
-    <Box sx={{ m: "1%" }}>
+    <Box sx={{ mb: "1%", minWidth: "30vw" }}>
       <Card
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          minWidth: "300px",
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
             <Typography component="div" variant="h5">
-              Women
+              {title}
             </Typography>
-            <CardMedia
-              component="img"
-              sx={{ width: 50 }}
-              image="https://icons-for-free.com/iconfiles/png/512/female+person+user+woman+young+icon-1320196266256009072.png"
-              alt="Girl"
-            />
+            <CardMedia component="img" sx={{ width: 50 }} image={img} alt="" />
           </CardContent>
           <Box
             sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
@@ -32,7 +26,7 @@ const OneCard = ({ title }) => {
           component="img"
           sx={{ width: 100, p: "2px" }}
           image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxMskTYR1lnYH7Pb41TIlUvHZU4ta5FbBzhQ&usqp=CAU"
-          alt="Girl"
+          alt="Diagram"
         />
       </Card>
     </Box>

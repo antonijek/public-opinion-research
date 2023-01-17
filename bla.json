@@ -1179,6 +1179,134 @@
           ]
         }
       ]
+    },
+    {
+      "id": 38,
+      "title": "Parlamentarni izbori",
+      "date": "25.11.2022",
+      "method": "anketa",
+      "questions": [
+        {
+          "title": "Da li ste za prijevremene parlamentarne izbore?",
+          "options": [
+            {
+              "option": "Jesam"
+            },
+            {
+              "option": "Nijesam"
+            },
+            {
+              "option": "Ne znam"
+            }
+          ]
+        },
+        {
+          "title": "Za koga biste glasali?",
+          "options": [
+            {
+              "option": ""
+            }
+          ]
+        },
+        {
+          "title": "Da li biste glasali na takvim izborima?",
+          "options": [
+            {
+              "option": "Bih"
+            },
+            {
+              "option": "Ne bih"
+            },
+            {
+              "option": "Ne znam"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Parlamentarni izbori",
+      "date": "25.11.2022",
+      "method": "anketa",
+      "questions": [
+        {
+          "title": "Da li ste za prijevremene parlamentarne izbore?",
+          "options": [
+            {
+              "option": "Jesam"
+            },
+            {
+              "option": "Nijesam"
+            },
+            {
+              "option": "Ne znam"
+            }
+          ]
+        },
+        {
+          "title": "Za koga biste glasali?",
+          "options": [
+            {
+              "option": ""
+            }
+          ]
+        },
+        {
+          "title": "Da ili ne",
+          "options": [
+            {
+              "option": ""
+            }
+          ]
+        },
+        {
+          "title": "Jeste li za",
+          "options": [
+            {
+              "option": ""
+            }
+          ]
+        },
+        {
+          "title": "Sta mislite",
+          "options": [
+            {
+              "option": ""
+            }
+          ]
+        },
+        {
+          "title": "kako je",
+          "options": [
+            {
+              "option": ""
+            }
+          ]
+        },
+        {
+          "title": "Imate li",
+          "options": [
+            {
+              "option": ""
+            }
+          ]
+        },
+        {
+          "title": "Da li biste glasali na takvim izborima?",
+          "options": [
+            {
+              "option": "Bih"
+            },
+            {
+              "option": "Ne bih"
+            },
+            {
+              "option": "Ne znam"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

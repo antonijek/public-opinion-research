@@ -17,7 +17,7 @@ const SingleQuestionnaire = () => {
 
   const getOneQuestionnaire = async () => {
     const res = await getOne(id, token);
-    setTimeout(() => setCurrentResearch(res.data), 50);
+    setTimeout(() => setCurrentResearch(res.data), 100);
 
     console.log(res.data);
   };

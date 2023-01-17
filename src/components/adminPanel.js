@@ -22,19 +22,16 @@ const AdminPanel = () => {
     useContext(QuestionnaireContext);
 
   const makeNewResearch = () => {
-    setCurrentResearch(rows[rows.length - 1]);
-    console.log("test");
+    //setCurrentResearch(rows[rows.length - 1]);
   };
-  console.log(currentResearch);
+
   return (
     <Box
       sx={{
-        width: "100vw",
-        height: "100vh",
-        maxWidth: { sm: "35%", md: "20%", minWidth: "15vw" },
-        bgcolor: "#d1e7dd",
-
+        width: "20vw",
+        bgcolor: "#519cae",
         display: { xs: "none", sm: "block" },
+        minHeight: "80vh",
       }}
     >
       <nav aria-label="main mailbox folders">
@@ -51,49 +48,37 @@ const AdminPanel = () => {
             src="/broken-image.jpg"
           />
           <Typography
-            sx={{ textAlign: "center", mb: 4, mt: 2, color: "rgb(86, 88, 86)" }}
+            sx={{ textAlign: "center", mb: 4, mt: 2, color: "white" }}
           >
             Admin
           </Typography>
-          <Divider sx={{ bgcolor: "white" }} />
-          <Link to="/cards">
-            <ListItem disablePadding sx={{ mb: "5%" }}>
+          <Divider sx={{ bgcolor: "white", mb: "6vw" }} />
+
+          <Link to={`/admin/research`} style={{ textDecoration: "none" }}>
+            <ListItem disablePadding sx={{ mb: "5%", mt: "5%" }}>
               <ListItemButton>
                 <ListItemIcon>
-                  <StyleIcon />
+                  <ScienceIcon sx={{ color: "white" }} />
                 </ListItemIcon>
-                <ListItemText
-                  primary="Cards"
-                  sx={{ color: "rgb(86, 88, 86)" }}
-                />
+                <ListItemText primary="Research" sx={{ color: "white" }} />
               </ListItemButton>
             </ListItem>
           </Link>
 
-          <ListItem disablePadding sx={{ mb: "5%", mt: "5%" }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <ScienceIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="Research"
-                sx={{ color: "rgb(86, 88, 86)" }}
-              />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding sx={{ mb: "10%" }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <ShowChartSharpIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="Statistics"
-                sx={{ color: "rgb(86, 88, 86)" }}
-              />
-            </ListItemButton>
-          </ListItem>
-          <Link to={`/questionnaire/${rows.length - 1}`}>
+          <Link style={{ textDecoration: "none" }} to="/statistics">
+            <ListItem disablePadding sx={{ mb: "5%" }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <StyleIcon sx={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText primary="Statistics" sx={{ color: "white" }} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+          <Link
+            to={`/questionnaire/${rows.length - 1}`}
+            style={{ textDecoration: "none" }}
+          >
             <ListItem
               disablePadding
               sx={{ mt: "-5%" }}
@@ -101,11 +86,11 @@ const AdminPanel = () => {
             >
               <ListItemButton>
                 <ListItemIcon>
-                  <DynamicFormIcon />
+                  <DynamicFormIcon sx={{ color: "white" }} />
                 </ListItemIcon>
                 <ListItemText
                   primary="Make new research"
-                  sx={{ color: "rgb(86, 88, 86)" }}
+                  sx={{ color: "white" }}
                 />
               </ListItemButton>
             </ListItem>

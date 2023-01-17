@@ -48,7 +48,7 @@ const NewQuestionnaire = () => {
                   label="Your question"
                   inputProps={{
                     style: {
-                      color: "white",
+                      color: "#5ba49d",
                       fontSize: "2.5vw",
                       textAlign: "center",
                     },

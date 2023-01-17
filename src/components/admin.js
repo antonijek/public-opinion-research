@@ -44,6 +44,20 @@ const Admin = () => {
       headerAlign: "center",
     },
     {
+      field: "statistics",
+      headerName: "Statistics",
+      flex: 1,
+      align: "center",
+      headerAlign: "center",
+      renderCell: (cellValues) => {
+        return (
+          <Link to={`/cards`}>
+            <p>View details</p>
+          </Link>
+        );
+      },
+    },
+    {
       field: "edit",
       headerName: "Edit",
       flex: 1,
@@ -73,12 +87,17 @@ const Admin = () => {
     if (e.field === "edit") {
       setCurrentResearch(e.row);
       setNum(e.id);
+      console.log(e);
     }
     if (e.field === "delete") {
       let res = await deleteData(e.id, token);
       let copy = [...rows];
       let filteredRows = copy.filter((item) => item.id !== e.id);
       setRows(filteredRows);
+    }
+    if (e.field === "statistics") {
+      setCurrentResearch(e.row);
+      console.log(e.row);
     }
   };
 
@@ -93,7 +112,7 @@ const Admin = () => {
           width: "100%",
         }}
       >
-        <h2>All ankets:</h2>
+        <h2>ALL ANKETS</h2>
         <DataGrid
           sx={{
             boxShadow: { md: "20px 20px 50px #9E9E9E" },
@@ -105,7 +124,7 @@ const Admin = () => {
           onCellClick={(e) => handleClick(e)}
           rows={rows}
           columns={columns}
-          pageSize={5}
+          pageSize={6}
           rowsPerPageOptions={[5]}
           checkboxSelection
           autoPageSize

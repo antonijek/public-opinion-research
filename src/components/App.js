@@ -11,8 +11,7 @@ import { getData } from "../api";
 import { QuestionnaireContext } from "./questionnaireContext";
 import Admin from "./admin";
 import AnketList from "./anketList";
-import NewQuestionnaire from "./newQuestionnaire";
-import Cards from "./cards";
+import Statistics from "./statistics";
 
 let token = localStorage.getItem("token");
 
@@ -53,8 +52,8 @@ const App = () => {
 
             <Route path="/login" element={<Login />} />
             <Route path="/ankets" element={<AnketList />} />
-            <Route exact path="/admin" element={<Admin />} />
-            <Route exact path="/cards" element={<Cards />} />
+            <Route exact path="/admin/research" element={<Admin />} />
+            <Route exact path="/statistics" element={<Statistics />} />
             <Route
               path="/questionnaire/:id"
               element={<SingleQuestionnaire />}

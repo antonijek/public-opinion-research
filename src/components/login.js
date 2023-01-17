@@ -25,7 +25,7 @@ const Login = () => {
       lockedData.email === logData.email &&
       lockedData.pass === logData.pass
     ) {
-      navigate("/admin");
+      navigate("/admin/research");
     }
     if (lockedData.email !== logData.email) {
       setHelperEmail(true);
