@@ -54,9 +54,9 @@ const PieChart = ({ currentResearch }) => {
       //setLoading(false);
       setChart({
         ...chart,
-        labels: currentResearch.questions[num].options.map(
-          (item) => item.option
-        ),
+        labels: currentResearch.questions
+          ? currentResearch.questions[num].options.map((item) => item.option)
+          : [],
         //labels: res.data.data.items_sold_by_category.map((item) => item.name),
         datasets: [
           {
@@ -121,6 +121,8 @@ const PieChart = ({ currentResearch }) => {
     getStatisticData();
   }, [num]);
 
+  console.log(currentResearch);
+
   return (
     <Box sx={{ backgroundColor: "white", width: "50vw" }}>
       <Box
@@ -148,27 +150,29 @@ const PieChart = ({ currentResearch }) => {
         </Box>
       </Box>
       <Box>
-        {currentResearch.questions.map((item, i) => (
-          <Button
-            fullWidth
-            onClick={() => setNum(i)}
-            sx={{
-              height: "auto",
-              mb: 0.5,
-              fontSize: "1.5vw",
-              backgroundColor: "#519cae",
+        {currentResearch.questions
+          ? currentResearch.questions?.map((item, i) => (
+              <Button
+                fullWidth
+                onClick={() => setNum(i)}
+                sx={{
+                  height: "auto",
+                  mb: 0.5,
+                  fontSize: "1.5vw",
+                  backgroundColor: "#519cae",
 
-              ":hover": {
-                bgcolor: " #d1e7dd",
-                color: "#519cae",
-              },
-            }}
-            key={i}
-            variant="contained"
-          >
-            {`${i + 1}. ${item.title}`}
-          </Button>
-        ))}
+                  ":hover": {
+                    bgcolor: " #d1e7dd",
+                    color: "#519cae",
+                  },
+                }}
+                key={i}
+                variant="contained"
+              >
+                {`${i + 1}. ${item.title}`}
+              </Button>
+            ))
+          : null}
       </Box>
     </Box>
   );

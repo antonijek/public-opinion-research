@@ -1,9 +1,24 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
-import Loader from "./loader";
+import Loader from "../common/loader";
+import { getData } from "../../api";
 
-const Questionnaire = ({ width, data }) => {
+let token = localStorage.getItem("token");
+
+const Questionnaire = ({ width }) => {
   const [loader] = useState(false);
+  const [lastResearch, setLastResearch] = useState([]);
+  const [all, setAll] = useState([]);
+
+  const getOne = async () => {
+    const res = await getData(token);
+    setAll(res.data);
+    setLastResearch(res.data[res.data.length - 1]);
+  };
+
+  useEffect(() => {
+    getOne();
+  }, []);
 
   return (
     <Box
@@ -23,11 +38,11 @@ const Questionnaire = ({ width, data }) => {
           fontWeight: "bold",
         }}
       >
-        {data.title}
+        {lastResearch.title}
       </Typography>
 
-      {data.questions
-        ? data.questions.map((question, i) => (
+      {lastResearch.questions
+        ? lastResearch.questions.map((question, i) => (
             <div key={i}>
               <Box>
                 <Typography

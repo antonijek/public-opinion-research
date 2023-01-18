@@ -2,8 +2,7 @@ import { React, useState } from "react";
 import Occupation from "./occupation";
 import Sex from "./sex";
 import Age from "./age";
-import DailyQusetion from "./dailyQusetion";
-import "../styles/age.css";
+import "../../styles/age.css";
 
 const BasicInformation = () => {
   const [age, setAge] = useState(false);
@@ -53,8 +52,6 @@ const BasicInformation = () => {
           style={style}
           submitBasicInformation={submitBasicInformation}
         />
-      ) : slider === "question" ? (
-        <DailyQusetion />
       ) : null}
     </div>
   );

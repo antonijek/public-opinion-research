@@ -1,6 +1,6 @@
 import { React } from "react";
-import "../styles/occupation.css";
-import "../styles/loader.css";
+import "../../styles/occupation.css";
+import "../../styles/loader.css";
 
 const Occupation = ({ changeOccupation, occupation, style }) => {
   const handleSubmit = (e) => {

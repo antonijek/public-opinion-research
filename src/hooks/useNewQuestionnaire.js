@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import "../styles/new-anket.css";
 import { postData } from "../api";
-import { QuestionnaireContext } from "../components/questionnaireContext";
+import { QuestionnaireContext } from "../components/common/questionnaireContext";
 
 const useNewQuestionnaire = () => {
   const { setCurrentResearch, currentResearch, token } =

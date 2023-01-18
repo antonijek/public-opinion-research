@@ -1,7 +1,7 @@
 import { React, useState, useContext } from "react";
 import { Box, TextField } from "@mui/material";
-import "../styles/new-anket.css";
-import useNewQuestionnaire from "../hooks/useNewQuestionnaire";
+import "../../styles/new-anket.css";
+import useNewQuestionnaire from "../../hooks/useNewQuestionnaire";
 
 const NewQuestionnaire = () => {
   const {

@@ -1,19 +1,36 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
-import { QuestionnaireContext } from "./questionnaireContext";
-import { deleteData } from "../api/index";
+import { QuestionnaireContext } from "../common/questionnaireContext";
+import { deleteData } from "../../api/index";
 import EditSharpIcon from "@mui/icons-material/EditSharp";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AdminPanel from "./adminPanel";
+import { getData } from "../../api";
+import Statistics from "./statistics";
+
+let token = localStorage.getItem("token");
 
 const Admin = () => {
-  const { rows, setRows, currentResearch, setCurrentResearch, token } =
-    useContext(QuestionnaireContext);
+  const [rows, setRows] = useState([]);
+  const [currentResearch, setCurrentResearch] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [num, setNum] = useState(1);
+  const getAllQuestionnaires = async () => {
+    try {
+      let res = await getData(token);
+      setRows(res.data);
+      setCurrentResearch(res.data[res.data.length - 1]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getAllQuestionnaires();
+  }, []);
 
+  console.log(currentResearch);
   const columns = [
     {
       field: "id",
@@ -86,8 +103,6 @@ const Admin = () => {
   const handleClick = async (e) => {
     if (e.field === "edit") {
       setCurrentResearch(e.row);
-      setNum(e.id);
-      console.log(e);
     }
     if (e.field === "delete") {
       let res = await deleteData(e.id, token);
@@ -103,34 +118,42 @@ const Admin = () => {
 
   return (
     <Box className="admin-page">
-      <AdminPanel />
-
-      <Box
-        sx={{
-          color: "#666666",
-          height: "50vh",
-          width: "100%",
-        }}
-      >
-        <h2>ALL ANKETS</h2>
-        <DataGrid
+      <AdminPanel
+        rows={rows}
+        setCurrentResearch={setCurrentResearch}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
+      {isOpen ? (
+        <Box
           sx={{
-            boxShadow: { md: "20px 20px 50px #9E9E9E" },
-            m: 3,
-            textAlign: "center",
-            backgroundColor: "#c5d6dd",
+            color: "#666666",
+            height: "50vh",
+            width: "100%",
           }}
-          disableSelectionOnClick
-          onCellClick={(e) => handleClick(e)}
-          rows={rows}
-          columns={columns}
-          pageSize={6}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-          autoPageSize
-          autoHeight
-        />
-      </Box>
+        >
+          <h2>ALL ANKETS</h2>
+          <DataGrid
+            sx={{
+              boxShadow: { md: "20px 20px 50px #9E9E9E" },
+              m: 3,
+              textAlign: "center",
+              backgroundColor: "#c5d6dd",
+            }}
+            disableSelectionOnClick
+            onCellClick={(e) => handleClick(e)}
+            rows={rows}
+            columns={columns}
+            pageSize={6}
+            rowsPerPageOptions={[5]}
+            checkboxSelection
+            autoPageSize
+            autoHeight
+          />
+        </Box>
+      ) : (
+        <Statistics currentResearch={currentResearch} />
+      )}
     </Box>
   );
 };

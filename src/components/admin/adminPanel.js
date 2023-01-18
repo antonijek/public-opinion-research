@@ -1,5 +1,5 @@
 import { React, useContext } from "react";
-import { QuestionnaireContext } from "./questionnaireContext";
+import { QuestionnaireContext } from "../common/questionnaireContext";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -17,12 +17,9 @@ import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import ScienceIcon from "@mui/icons-material/Science";
 import ShowChartSharpIcon from "@mui/icons-material/ShowChartSharp";
 
-const AdminPanel = () => {
-  const { rows, currentResearch, setCurrentResearch, token } =
-    useContext(QuestionnaireContext);
-
+const AdminPanel = ({ rows, setCurrentResearch, setIsOpen }) => {
   const makeNewResearch = () => {
-    //setCurrentResearch(rows[rows.length - 1]);
+    setCurrentResearch(rows[rows.length - 1]);
   };
 
   return (
@@ -54,27 +51,32 @@ const AdminPanel = () => {
           </Typography>
           <Divider sx={{ bgcolor: "white", mb: "6vw" }} />
 
-          <Link to={`/admin/research`} style={{ textDecoration: "none" }}>
-            <ListItem disablePadding sx={{ mb: "5%", mt: "5%" }}>
-              <ListItemButton>
-                <ListItemIcon>
-                  <ScienceIcon sx={{ color: "white" }} />
-                </ListItemIcon>
-                <ListItemText primary="Research" sx={{ color: "white" }} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
+          <ListItem
+            disablePadding
+            sx={{ mb: "5%", mt: "5%" }}
+            onClick={() => setIsOpen(true)}
+          >
+            <ListItemButton>
+              <ListItemIcon>
+                <ScienceIcon sx={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Research" sx={{ color: "white" }} />
+            </ListItemButton>
+          </ListItem>
 
-          <Link style={{ textDecoration: "none" }} to="/statistics">
-            <ListItem disablePadding sx={{ mb: "5%" }}>
-              <ListItemButton>
-                <ListItemIcon>
-                  <StyleIcon sx={{ color: "white" }} />
-                </ListItemIcon>
-                <ListItemText primary="Statistics" sx={{ color: "white" }} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
+          <ListItem
+            disablePadding
+            sx={{ mb: "5%" }}
+            onClick={() => setIsOpen(false)}
+          >
+            <ListItemButton>
+              <ListItemIcon>
+                <StyleIcon sx={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Statistics" sx={{ color: "white" }} />
+            </ListItemButton>
+          </ListItem>
+
           <Link
             to={`/questionnaire/${rows.length - 1}`}
             style={{ textDecoration: "none" }}

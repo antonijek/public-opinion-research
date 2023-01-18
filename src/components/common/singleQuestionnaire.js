@@ -1,12 +1,12 @@
 import { React, useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import NewQuestionnaire from "./newQuestionnaire";
-import "../styles/admin.css";
-import Questionnaire from "./questionnaire";
+import NewQuestionnaire from "../admin/newQuestionnaire";
+import "../../styles/admin.css";
+import Questionnaire from "../user/questionnaire";
 import { Box } from "@mui/material";
-import AdminPanel from "./adminPanel";
+import AdminPanel from "../admin/adminPanel";
 import { QuestionnaireContext } from "./questionnaireContext";
-import { getOne } from "../api";
+import { getOne } from "../../api";
 
 let token = localStorage.getItem("token");
 
