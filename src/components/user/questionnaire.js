@@ -13,11 +13,12 @@ const Questionnaire = ({ data, width }) => {
     >
       <Typography
         sx={{
-          fontSize: { xs: "6vw", sm: "4vw", lg: "3vw" },
+          fontSize: { xs: "6vw", sm: "4vw" },
           textAlign: "center",
-          pb: "2vw",
+          pb: "3vw",
           pt: "2vw",
           fontWeight: "bold",
+          color: "rgb(86, 88, 86)",
         }}
       >
         {data.title}
@@ -29,10 +30,12 @@ const Questionnaire = ({ data, width }) => {
               <Box>
                 <Typography
                   sx={{
-                    fontSize: { xs: "5vw", sm: "3vw", lg: "2vw" },
+                    fontSize: { xs: "5vw", sm: "3vw", lg: "3vw" },
                     textAlign: "center",
                     fontWeight: "bold",
-                    mb: "2vw",
+                    mb: "3vw",
+                    mt: "3vw",
+                    color: "rgb(86, 88, 86)",
                   }}
                 >
                   {question.title}
@@ -55,6 +58,7 @@ const Questionnaire = ({ data, width }) => {
                       ml: "0.5vw",
                       mt: "0.5vw",
                       fontSize: { xs: "4vw", sm: "2vw", lg: "1.5vw" },
+                      color: "rgb(86, 88, 86)",
                     }}
                   >
                     {answer.option}

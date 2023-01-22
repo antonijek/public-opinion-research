@@ -503,6 +503,84 @@
           ]
         }
       ]
+    },
+    {
+      "id": 17,
+      "title": "Nedjelja",
+      "date": "25.11.2022",
+      "method": "anketa",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            },
+            {
+              "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Subota",
+      "date": "1/22/2023",
+      "method": "anketa",
+      "questions": [
+        {
+          "title": "Sta radite subotom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            },
+            {
+              "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

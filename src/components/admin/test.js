@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import Statistics from "./statistics";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import EditSharpIcon from "@mui/icons-material/EditSharp";
 import { Link } from "react-router-dom";
@@ -66,8 +66,19 @@ const Test = () => {
       headerAlign: "center",
       renderCell: (cellValues) => {
         return (
-          <Link to={`/admin/research`}>
-            <p>View details</p>
+          <Link
+            to={`/admin/research`}
+            style={{ color: "#519cae", textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                ":hover": {
+                  color: "#d1e7dd",
+                },
+              }}
+            >
+              View details
+            </Typography>
           </Link>
         );
       },
@@ -81,7 +92,14 @@ const Test = () => {
       renderCell: (cellValues) => {
         return (
           <Link to={`questionnaire/${cellValues.id}`}>
-            <EditSharpIcon />
+            <EditSharpIcon
+              sx={{
+                color: "#519cae",
+                ":hover": {
+                  color: "#d1e7dd",
+                },
+              }}
+            />
           </Link>
         );
       },
@@ -93,7 +111,18 @@ const Test = () => {
       align: "center",
       headerAlign: "center",
       renderCell: () => {
-        return <DeleteIcon />;
+        return (
+          <Link>
+            <DeleteIcon
+              sx={{
+                color: "#519cae",
+                ":hover": {
+                  color: "#d1e7dd",
+                },
+              }}
+            />
+          </Link>
+        );
       },
     },
   ];

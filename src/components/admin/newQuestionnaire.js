@@ -1,7 +1,6 @@
 import { React } from "react";
 import { Box, TextField } from "@mui/material";
 import "../../styles/new-anket.css";
-import useNewQuestionnaire from "../../hooks/useAdmin";
 
 const NewQuestionnaire = ({
   data,
@@ -18,12 +17,19 @@ const NewQuestionnaire = ({
   return (
     <Box sx={{ textAlign: "center", width: { width } }}>
       <TextField
-        sx={{ mb: "5%", mt: "3%", width: "50%", justifyContent: "center" }}
+        sx={{
+          mb: "5%",
+          mt: "3%",
+          width: "50%",
+          justifyContent: "center",
+        }}
         variant="standard"
         name="title"
         value={data.title || ""}
         label="Title"
-        inputProps={{ style: { textAlign: "center" } }}
+        inputProps={{
+          style: { textAlign: "center", fontSize: "2.5vw", color: "#519cae" },
+        }}
         onChange={(e) => handleChange(e)}
       />
 
@@ -47,8 +53,8 @@ const NewQuestionnaire = ({
                   label="Your question"
                   inputProps={{
                     style: {
-                      color: "#5ba49d",
-                      fontSize: "2.5vw",
+                      color: "#519cae",
+                      fontSize: "2vw",
                       textAlign: "center",
                     },
                   }}

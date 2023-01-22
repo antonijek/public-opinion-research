@@ -19,10 +19,10 @@ const Header = () => {
           <h4> ANKETE </h4>
         </Link>
 
-        <Link to="/login">
+        <Link to="/login" sx={{ color: "rgb(86, 88, 86)" }}>
           <img
             className="admin-logo"
-            src="https://icones.pro/wp-content/uploads/2022/07/icones-d-administration.png"
+            src="https://icones.pro/wp-content/uploads/2022/07/icones-d-administration-gris.png"
             alt="admin"
           />
         </Link>

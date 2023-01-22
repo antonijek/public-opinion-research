@@ -42,6 +42,7 @@ const useAdmin = () => {
     try {
       let copy = { ...currentResearch };
       copy.id = copy.length - 1;
+      copy.date = new Date().toLocaleDateString();
       await postData(copy, token);
     } catch (err) {
       console.log(err);

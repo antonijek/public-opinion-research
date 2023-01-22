@@ -1,23 +1,23 @@
 .add {
-  background-color: #2791d8;
+  background-color: #519cae;
   width: 2vw;
   height: 2vw;
 }
 .remove {
-  background-color: #f44336;
+  background-color: #db4646;
   width: 2vw;
   height: 2vw;
 }
 .submit-btn {
   padding: 1vw;
   border-radius: 10%;
-  background-color: #d1e7dd;
-  margin-bottom: 10vw;
-  margin-top: 2vw;
-  color: rgb(86, 88, 86);
+  background-color: #519cae;
+  margin-bottom: 5vw;
+  margin-top: 10vw;
+  color: white;
 }
 .add-first {
-  background-color: #2791d8;
+  background-color: #519cae;
   width: 2vw;
   height: 2vw;
   margin-left: 65%;
