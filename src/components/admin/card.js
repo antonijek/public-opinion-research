@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Card, CardContent, Typography, CardMedia } from "@mui/material";
-import FaceIcon from "@mui/icons-material/Face";
 
 const OneCard = ({ title, img }) => {
   return (

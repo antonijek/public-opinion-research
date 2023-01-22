@@ -1,11 +1,12 @@
 import { React, useContext } from "react";
-import AdminPanel from "./adminPanel";
 import { Box } from "@mui/material";
 import OneCard from "./card";
 import PieChart from "./pieChart";
 import { QuestionnaireContext } from "../common/questionnaireContext";
 
-const Statistics = ({ currentResearch }) => {
+const Statistics = () => {
+  const { currentResearch } = useContext(QuestionnaireContext);
+
   let details = {
     img1: "https://icons-for-free.com/iconfiles/png/512/lady+scarf+woman+icon-1320166736647016492.png",
     img2: "https://icons-for-free.com/iconfiles/png/512/businessman+man+officer+work+icon-1320086520635711032.png",

@@ -15,17 +15,20 @@ import {
 import StyleIcon from "@mui/icons-material/Style";
 import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import ScienceIcon from "@mui/icons-material/Science";
-import ShowChartSharpIcon from "@mui/icons-material/ShowChartSharp";
 
-const AdminPanel = ({ rows, setCurrentResearch, setIsOpen }) => {
+const AdminPanel = () => {
+  const { rows, setCurrentResearch, setOption } =
+    useContext(QuestionnaireContext);
+
   const makeNewResearch = () => {
     setCurrentResearch(rows[rows.length - 1]);
+    setOption(3);
   };
 
   return (
     <Box
       sx={{
-        width: "20vw",
+        width: { sm: "25vw", lg: "20vw" },
         bgcolor: "#519cae",
         display: { xs: "none", sm: "block" },
         minHeight: "80vh",
@@ -50,53 +53,46 @@ const AdminPanel = ({ rows, setCurrentResearch, setIsOpen }) => {
             Admin
           </Typography>
           <Divider sx={{ bgcolor: "white", mb: "6vw" }} />
+          <Link to={`/admin/research`} style={{ textDecoration: "none" }}>
+            <ListItem
+              disablePadding
+              sx={{ mb: "5%", mt: "5%" }}
+              onClick={() => setOption(1)}
+            >
+              <ListItemButton>
+                <ListItemIcon sx={{ color: "white", minWidth: "3vw" }}>
+                  <ScienceIcon />
+                </ListItemIcon>
+                <ListItemText primary="Research" sx={{ color: "white" }} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
 
           <ListItem
             disablePadding
             sx={{ mb: "5%", mt: "5%" }}
-            onClick={() => setIsOpen(true)}
+            onClick={() => setOption(2)}
           >
             <ListItemButton>
-              <ListItemIcon>
-                <ScienceIcon sx={{ color: "white" }} />
-              </ListItemIcon>
-              <ListItemText primary="Research" sx={{ color: "white" }} />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem
-            disablePadding
-            sx={{ mb: "5%" }}
-            onClick={() => setIsOpen(false)}
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                <StyleIcon sx={{ color: "white" }} />
+              <ListItemIcon sx={{ color: "white", minWidth: "3vw" }}>
+                <StyleIcon />
               </ListItemIcon>
               <ListItemText primary="Statistics" sx={{ color: "white" }} />
             </ListItemButton>
           </ListItem>
 
-          <Link
-            to={`/questionnaire/${rows.length - 1}`}
-            style={{ textDecoration: "none" }}
+          <ListItem
+            disablePadding
+            sx={{ mt: "-5%", mt: "5%" }}
+            onClick={makeNewResearch}
           >
-            <ListItem
-              disablePadding
-              sx={{ mt: "-5%" }}
-              onClick={makeNewResearch}
-            >
-              <ListItemButton>
-                <ListItemIcon>
-                  <DynamicFormIcon sx={{ color: "white" }} />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Make new research"
-                  sx={{ color: "white" }}
-                />
-              </ListItemButton>
-            </ListItem>
-          </Link>
+            <ListItemButton>
+              <ListItemIcon sx={{ color: "white", minWidth: "3vw" }}>
+                <DynamicFormIcon />
+              </ListItemIcon>
+              <ListItemText primary="New research" sx={{ color: "white" }} />
+            </ListItemButton>
+          </ListItem>
         </List>
       </nav>
     </Box>

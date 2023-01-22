@@ -40,11 +40,7 @@ let borderColor = [
 const PieChart = ({ currentResearch }) => {
   const [chart, setChart] = useState(data);
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState();
   const [num, setNum] = useState(0);
-  const [active, setActive] = useState();
-
-  let token = localStorage.getItem("token");
 
   const getStatisticData = () => {
     try {
@@ -77,51 +73,9 @@ const PieChart = ({ currentResearch }) => {
     }
   };
 
-  const handleStatisticbyCategory = () => {
-    setChart({
-      ...chart,
-      labels: ["jedan", "dva", "tri", "cetiri", "pet", "sest", "sedam"],
-      /*  labels: response.data.data.items_sold_by_category.map(
-        (item) => item.name
-      ), */
-      datasets: [
-        {
-          label: "# of Votes",
-          data: ["jedan", "dva", "tri", "cetiri", "pet", "sest", "sedam"],
-          /*  data: response.data.data.items_sold_by_category.map(
-            (item) => item.total
-          ), */
-          backgroundColor: backgroundColor,
-          borderColor: borderColor,
-          borderWidth: 1,
-        },
-      ],
-    });
-  };
-
-  const handleStatisticbyInstrument = () => {
-    setChart({
-      ...chart,
-      labels: ["jedan", "dva", "tri", "cetiri", "pet", "sest", "sedam"],
-      //labels: response.data.data.items_sold.map((item) => item.name),
-      datasets: [
-        {
-          label: "# of Votes",
-          data: ["jedan", "dva", "tri", "cetiri", "pet", "sest", "sedam"],
-          //data: response.data.data.items_sold.map((item) => item.total),
-          backgroundColor: backgroundColor,
-          borderColor: borderColor,
-          borderWidth: 1,
-        },
-      ],
-    });
-  };
-
   useEffect(() => {
     getStatisticData();
   }, [num]);
-
-  console.log(currentResearch);
 
   return (
     <Box sx={{ backgroundColor: "white", width: "50vw" }}>

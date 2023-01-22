@@ -1,11 +1,27 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import "../styles/new-anket.css";
 import { postData } from "../api";
-import { QuestionnaireContext } from "../components/common/questionnaireContext";
+import { getData } from "../api";
 
-const useNewQuestionnaire = () => {
-  const { setCurrentResearch, currentResearch, token } =
-    useContext(QuestionnaireContext);
+let token = localStorage.getItem("token");
+
+const useAdmin = () => {
+  const [rows, setRows] = useState([]);
+  const [currentResearch, setCurrentResearch] = useState([]);
+  const [option, setOption] = useState(1);
+
+  const getAllQuestionnaires = async () => {
+    try {
+      let res = await getData(token);
+      setRows(res.data);
+      setCurrentResearch(res.data[res.data.length - 1]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getAllQuestionnaires();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +42,7 @@ const useNewQuestionnaire = () => {
     try {
       let copy = { ...currentResearch };
       copy.id = copy.length - 1;
-      let res = await postData(copy, token);
+      await postData(copy, token);
     } catch (err) {
       console.log(err);
     }
@@ -38,6 +54,7 @@ const useNewQuestionnaire = () => {
       let x = a.filter((item) => item !== a[answer]);
       copy.questions[question].options = x;
     }
+
     setCurrentResearch(copy);
   };
 
@@ -79,6 +96,11 @@ const useNewQuestionnaire = () => {
   };
 
   return {
+    rows,
+    setRows,
+    setCurrentResearch,
+    option,
+    setOption,
     currentResearch,
     addAnswer,
     addQuestion,
@@ -91,4 +113,4 @@ const useNewQuestionnaire = () => {
   };
 };
 
-export default useNewQuestionnaire;
+export default useAdmin;

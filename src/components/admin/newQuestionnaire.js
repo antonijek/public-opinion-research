@@ -1,35 +1,34 @@
-import { React, useState, useContext } from "react";
+import { React } from "react";
 import { Box, TextField } from "@mui/material";
 import "../../styles/new-anket.css";
-import useNewQuestionnaire from "../../hooks/useNewQuestionnaire";
+import useNewQuestionnaire from "../../hooks/useAdmin";
 
-const NewQuestionnaire = () => {
-  const {
-    currentResearch,
-    addAnswer,
-    addQuestion,
-    removeAnswer,
-    removeQuestion,
-    submitData,
-    changeAnswer,
-    changeQuestion,
-    handleChange,
-  } = useNewQuestionnaire();
-
+const NewQuestionnaire = ({
+  data,
+  width,
+  addAnswer,
+  addQuestion,
+  removeAnswer,
+  removeQuestion,
+  submitData,
+  changeAnswer,
+  changeQuestion,
+  handleChange,
+}) => {
   return (
-    <Box sx={{ textAlign: "center", width: "40vw" }}>
+    <Box sx={{ textAlign: "center", width: { width } }}>
       <TextField
         sx={{ mb: "5%", mt: "3%", width: "50%", justifyContent: "center" }}
         variant="standard"
         name="title"
-        value={currentResearch.title || ""}
+        value={data.title || ""}
         label="Title"
         inputProps={{ style: { textAlign: "center" } }}
         onChange={(e) => handleChange(e)}
       />
 
-      {currentResearch.questions
-        ? currentResearch.questions.map((question, i) => (
+      {data.questions
+        ? data.questions.map((question, i) => (
             <div key={i}>
               <Box
                 sx={{
