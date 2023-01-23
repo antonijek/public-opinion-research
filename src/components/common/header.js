@@ -1,6 +1,9 @@
 import React from "react";
 import "../../styles/header.css";
 import { Link } from "react-router-dom";
+
+let token = localStorage.getItem("token");
+
 const Header = () => {
   return (
     <div className="header">

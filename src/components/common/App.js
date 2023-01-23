@@ -10,6 +10,7 @@ import Admin from "../admin/admin";
 import AnketList from "../user/anketList";
 import Statistics from "../admin/statistics";
 import { getData } from "../../api";
+import Profile from "../admin/profile";
 
 let token = localStorage.getItem("token");
 
@@ -44,6 +45,7 @@ const App = () => {
           )}
 
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/ankets" element={<AnketList />} />
           <Route exact path="/admin/research" element={<Admin />} />
           <Route exact path="/statistics" element={<Statistics />} />

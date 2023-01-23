@@ -51,7 +51,7 @@ const Login = () => {
       >
         <Typography
           align="center"
-          color="primary"
+          color="#519cae"
           variant="h4"
           gutterBottom
           component="div"
@@ -89,7 +89,7 @@ const Login = () => {
           href={"/"}
           type="submit"
           variant="contained"
-          sx={{ mt: "5%", mb: "3%" }}
+          sx={{ mt: "5%", mb: "3%", backgroundColor: "#519cae" }}
           fullWidth
           onClick={(e) => checkData(e)}
         >
@@ -99,16 +99,9 @@ const Login = () => {
         <Link
           href="#"
           underline="hover"
-          sx={{ display: "flex", justifyContent: "center" }}
+          sx={{ display: "flex", justifyContent: "center", color: "#519cae" }}
         >
           {"Forgot password?"}
-        </Link>
-        <Link
-          href="/register"
-          underline="hover"
-          sx={{ display: "flex", justifyContent: "center" }}
-        >
-          {"Sign up"}
         </Link>
       </Box>
     </Box>

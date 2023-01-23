@@ -1,5 +1,6 @@
 import axios from "axios";
 let baseUrl = "http://localhost:8000/research";
+let baseUrl1 = "http://localhost:8000/log";
 
 export const getData = (token) => {
   return axios(baseUrl, {
