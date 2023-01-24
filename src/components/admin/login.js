@@ -1,13 +1,19 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, TextField, Button, Typography, Link } from "@mui/material";
+import {
+  handlePasswordHelper,
+  passwordRole,
+  helperPasswordNode,
+} from "../../utils";
+import "../../styles/profile.css";
 
 const Login = () => {
   const navigate = useNavigate();
 
   const [lockedData] = useState({
     email: "antonijek@yahoo.com",
-    pass: "123456",
+    pass: "Antonije1",
   });
   const [logData, setLogData] = useState();
   const [helperEmail, setHelperEmail] = useState(false);
@@ -15,8 +21,6 @@ const Login = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setHelperEmail(false);
-    setHelperPass(false);
     setLogData({ ...logData, [name]: value });
   };
   const checkData = (e) => {
@@ -34,6 +38,12 @@ const Login = () => {
       setHelperPass(true);
     }
   };
+
+  const handlePassword = (e) => {
+    handleChange(e);
+    handlePasswordHelper(e, passwordRole, setHelperPass);
+  };
+
   return (
     <Box>
       <Box
@@ -72,7 +82,7 @@ const Login = () => {
         />
         <br />
         <TextField
-          onChange={(e) => handleChange(e)}
+          onChange={(e) => handlePassword(e)}
           sx={{ mb: "5%" }}
           fullWidth
           type="password"
@@ -80,8 +90,8 @@ const Login = () => {
           variant="standard"
           required
           name="pass"
-          error={helperPass}
-          helperText={helperPass ? "Invalid password." : null}
+          error={Boolean(helperPass)}
+          helperText={helperPass && helperPasswordNode(helperPass)}
         />
         <br />
 

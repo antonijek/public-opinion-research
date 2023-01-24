@@ -1,20 +1,15 @@
 import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Box, TextField, Button, Typography, Link } from "@mui/material";
-import { confirmPassword } from "../../utils";
-import { checkPassword } from "../../utils";
+import {
+  confirmPassword,
+  handlePasswordHelper,
+  passwordRole,
+  helperPasswordNode,
+} from "../../utils";
 import { postData } from "../../api";
 import "../../styles/profile.css";
-import { yellow } from "@mui/material/colors";
 
 let token = localStorage.getItem("token");
-
-const newPassRole = {
-  uppercase: "Unos mora da sadrži najmanje jedno veliko slovo",
-  lowercase: "Unos mora da sadrži najmanje jedno malo slovo",
-  number: "Unos mora da sadrži najmanje jedan broj",
-  len: "Unos mora da sadrži najmanje 8 karaktera",
-};
 
 const Profile = () => {
   const [logData, setLogData] = useState();
@@ -25,43 +20,6 @@ const Profile = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLogData({ ...logData, [name]: value });
-  };
-  // Ispravka na newPassword ako se ukuca polse confirma
-  const handleNewHelper = (e) => {
-    const { value } = e.target;
-    let copyObj = { ...newPassRole };
-    if (/[A-Z]/.test(value) === false) {
-      copyObj.uppercase = "Unos mora da sadrži najmanje jedno veliko slovo";
-    } else {
-      copyObj.uppercase = "";
-    }
-    if (/[a-z]/.test(value) === false) {
-      copyObj.lowercase = "Unos mora da sadrži najmanje jedno malo slovo";
-    } else {
-      copyObj.lowercase = "";
-    }
-    if (/[0-9]/.test(value) === false) {
-      copyObj.number = "Unos mora da sadrži najmanje jedan broj";
-    } else {
-      copyObj.number = "";
-    }
-    if (value.length < 8) {
-      copyObj.len = "Unos mora da sadrži najmanje 8 karaktera";
-    } else {
-      copyObj.len = "";
-    }
-    if (
-      !copyObj.uppercase &&
-      !copyObj.lowercase &&
-      !copyObj.number &&
-      !copyObj.len
-    ) {
-      setHelperNewPassword("");
-    } else {
-      setHelperNewPassword(copyObj);
-    }
-    if (value.length < 1) setHelperNewPassword("");
-    console.log(helperNewPassword);
   };
 
   const handleOldHelper = (e) => {
@@ -104,7 +62,7 @@ const Profile = () => {
 
   const handleNewPassword = (e) => {
     handleChange(e);
-    handleNewHelper(e);
+    handlePasswordHelper(e, passwordRole, setHelperNewPassword);
   };
   const handleOldPassword = (e) => {
     handleChange(e);
@@ -162,37 +120,7 @@ const Profile = () => {
           name="newPassword"
           error={Boolean(helperNewPassword)}
           helperText={
-            helperNewPassword && (
-              <span>
-                <span
-                  className={helperNewPassword.len ? "visible" : "invisible"}
-                >
-                  {helperNewPassword.len}
-                </span>
-
-                <span
-                  className={
-                    helperNewPassword.uppercase ? "visible" : "invisible"
-                  }
-                >
-                  {helperNewPassword.uppercase}
-                </span>
-
-                <span
-                  className={
-                    helperNewPassword.lowercase ? "visible" : "invisible"
-                  }
-                >
-                  {helperNewPassword.lowercase}
-                </span>
-
-                <span
-                  className={helperNewPassword.number ? "visible" : "invisible"}
-                >
-                  {helperNewPassword.number}
-                </span>
-              </span>
-            )
+            helperNewPassword && helperPasswordNode(helperNewPassword)
           }
           onChange={(e) => handleNewPassword(e)}
         />
