@@ -1,4 +1,4 @@
-import { React, useContext } from "react";
+import { React, useContext, useState } from "react";
 import Statistics from "./statistics";
 import { Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
@@ -11,7 +11,8 @@ import EditQuestionnaire from "../common/editQuestionnaire";
 
 let token = localStorage.getItem("token");
 
-const Test = () => {
+const Wraper = () => {
+  const [loader, setLoader] = useState(false);
   const {
     rows,
     setRows,
@@ -133,10 +134,16 @@ const Test = () => {
       setOption(3);
     }
     if (e.field === "delete") {
-      await deleteData(e.id, token);
-      let copy = [...rows];
-      let filteredRows = copy.filter((item) => item.id !== e.id);
-      setRows(filteredRows);
+      try {
+        setLoader(true);
+        await deleteData(e.id, token);
+        let copy = [...rows];
+        let filteredRows = copy.filter((item) => item.id !== e.id);
+        setRows(filteredRows);
+        setLoader(false);
+      } catch {
+        setLoader(false);
+      }
     }
     if (e.field === "statistics") {
       setCurrentResearch(e.row);
@@ -145,14 +152,13 @@ const Test = () => {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", pb: "10vh" }}>
       {option === 2 ? (
         <Statistics />
       ) : option === 1 ? (
         <Box
           sx={{
             color: "#666666",
-            height: "50vh",
             width: "100%",
           }}
         >
@@ -173,6 +179,7 @@ const Test = () => {
             checkboxSelection
             autoPageSize
             autoHeight
+            loading={loader}
           />
         </Box>
       ) : option === 3 ? (
@@ -192,4 +199,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Wraper;

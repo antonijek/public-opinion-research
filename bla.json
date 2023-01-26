@@ -181,150 +181,6 @@
       ]
     },
     {
-      "id": 8,
-      "title": "Luka Risannm",
-      "date": "25.11.2022",
-      "method": "anketa",
-      "questions": [
-        {
-          "title": "prvo pitanje",
-          "options": [
-            {
-              "option": "bla"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        },
-        {
-          "title": "drugo pitanje",
-          "options": [
-            {
-              "option": "blasko"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "title": "Luka Risannmp",
-      "date": "25.11.2022",
-      "method": "anketa",
-      "questions": [
-        {
-          "title": "prvo pitanje",
-          "options": [
-            {
-              "option": "bla"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        },
-        {
-          "title": "drugo pitanje",
-          "options": [
-            {
-              "option": "blasko"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "title": "Luka Risannmpo",
-      "date": "25.11.2022",
-      "method": "anketa",
-      "questions": [
-        {
-          "title": "prvo pitanje",
-          "options": [
-            {
-              "option": "bla"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        },
-        {
-          "title": "drugo pitanje",
-          "options": [
-            {
-              "option": "blasko"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "title": "Luka Risannmpoo",
-      "date": "25.11.2022",
-      "method": "anketa",
-      "questions": [
-        {
-          "title": "prvo pitanje",
-          "options": [
-            {
-              "option": "bla"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        },
-        {
-          "title": "drugo pitanje",
-          "options": [
-            {
-              "option": "blasko"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": 12,
       "title": "Dritan",
       "date": "25.11.2022",
@@ -335,42 +191,6 @@
           "options": [
             {
               "option": "bla"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        },
-        {
-          "title": "drugo pitanje",
-          "options": [
-            {
-              "option": "blasko"
-            },
-            {
-              "option": "bla2"
-            },
-            {
-              "option": "bla3"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "title": "Dritan",
-      "date": "25.11.2022",
-      "method": "anketa",
-      "questions": [
-        {
-          "title": "je li peder",
-          "options": [
-            {
-              "option": "naravno"
             },
             {
               "option": "bla2"
@@ -545,12 +365,12 @@
     },
     {
       "id": 18,
-      "title": "Subota",
-      "date": "1/22/2023",
+      "title": "Nedjelja",
+      "date": "1/25/2023",
       "method": "anketa",
       "questions": [
         {
-          "title": "Sta radite subotom?",
+          "title": "Sta radite nedjeljom?",
           "options": [
             {
               "option": "Idem u crkvu."
@@ -563,6 +383,17 @@
             },
             {
               "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
             }
           ]
         },

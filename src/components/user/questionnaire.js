@@ -1,19 +1,22 @@
 import { React } from "react";
 import { Box, Typography } from "@mui/material";
+import Loader from "../common/loader";
 
 const Questionnaire = ({ data, width }) => {
   return (
     <Box
       sx={{
+        pb: "10vh",
         textAlign: "center",
         backgroundColor: "#C5D6DD",
         width: { width },
         minHeight: "80vh",
       }}
     >
+      {!data && <Loader />}
       <Typography
         sx={{
-          fontSize: { xs: "6vw", sm: "4vw" },
+          fontSize: { xs: "5vw", sm: "3.5vw", md: "3vw" },
           textAlign: "center",
           pb: "3vw",
           pt: "2vw",
@@ -30,11 +33,12 @@ const Questionnaire = ({ data, width }) => {
               <Box>
                 <Typography
                   sx={{
-                    fontSize: { xs: "5vw", sm: "3vw", lg: "3vw" },
+                    fontSize: { xs: "4vw", sm: "3vw", md: "2.5vw" },
                     textAlign: "center",
                     fontWeight: "bold",
-                    mb: "3vw",
-                    mt: "3vw",
+                    mb: "5vw",
+                    mt: "5vw",
+                    paddingInline: "5vw",
                     color: "rgb(86, 88, 86)",
                   }}
                 >
@@ -57,7 +61,7 @@ const Questionnaire = ({ data, width }) => {
                       textAlign: "center",
                       ml: "0.5vw",
                       mt: "0.5vw",
-                      fontSize: { xs: "4vw", sm: "2vw", lg: "1.5vw" },
+                      fontSize: { xs: "3vw", sm: "2.5vw", md: "1.5vw" },
                       color: "rgb(86, 88, 86)",
                     }}
                   >

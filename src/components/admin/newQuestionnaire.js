@@ -50,7 +50,7 @@ const NewQuestionnaire = ({
                   variant="standard"
                   value={question.title}
                   onChange={(e) => changeQuestion(e, i)}
-                  label="Your question"
+                  label="Question"
                   inputProps={{
                     style: {
                       color: "#519cae",
@@ -78,14 +78,14 @@ const NewQuestionnaire = ({
                     key={n}
                     sx={{
                       display: "flex",
-                      justifyContent: "space-around",
+                      justifyContent: "space-evenly",
                       alignItems: "center",
                     }}
                   >
                     <TextField
                       sx={{ width: "50%" }}
                       variant="standard"
-                      label="Your answer"
+                      label="Answer"
                       value={answer.option}
                       name={answer["option"]}
                       onChange={(e) => changeAnswer(e, i, n)}

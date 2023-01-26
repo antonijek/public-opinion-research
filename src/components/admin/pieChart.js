@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { CircularProgress, Typography, Box, Button } from "@mui/material";
+import Loader from "../common/loader";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -37,10 +38,11 @@ let borderColor = [
   "rgba(0, 119, 164, 1)",
 ];
 
-const PieChart = ({ currentResearch }) => {
+const PieChart = ({ currentResearch, percents, setPieParts }) => {
   const [chart, setChart] = useState(data);
   const [loading, setLoading] = useState(false);
   const [num, setNum] = useState(0);
+  const [response, setResponse] = useState();
 
   const getStatisticData = () => {
     try {
@@ -57,7 +59,7 @@ const PieChart = ({ currentResearch }) => {
         datasets: [
           {
             label: "# of Votes",
-            data: [55, 15, 20, 10],
+            data: percents,
             //data: res.data.data.items_sold_by_category.map(
             //(item) => item.total
             // ),
@@ -75,7 +77,7 @@ const PieChart = ({ currentResearch }) => {
 
   useEffect(() => {
     getStatisticData();
-  }, [num]);
+  }, [percents]);
 
   return (
     <Box sx={{ backgroundColor: "white", width: "50vw" }}>
@@ -85,6 +87,7 @@ const PieChart = ({ currentResearch }) => {
           justifyContent: "center",
         }}
       >
+        {loading && <Loader />}
         <Box style={{ width: "40vw", marginBottom: "5vw" }}>
           <Typography
             variant="h4"
@@ -108,7 +111,10 @@ const PieChart = ({ currentResearch }) => {
           ? currentResearch.questions?.map((item, i) => (
               <Button
                 fullWidth
-                onClick={() => setNum(i)}
+                onClick={() => {
+                  setNum(i);
+                  setPieParts(currentResearch.questions[i].options.length);
+                }}
                 sx={{
                   height: "auto",
                   mb: 0.5,

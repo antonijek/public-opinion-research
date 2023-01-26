@@ -16,7 +16,7 @@ let token = localStorage.getItem("token");
 
 const App = () => {
   const [data, setData] = useState([]);
-  const [lastResearch, setLastResearch] = useState([]);
+  const [lastResearch, setLastResearch] = useState("");
 
   const getAllQuestionnaires = async () => {
     const res = await getData(token);

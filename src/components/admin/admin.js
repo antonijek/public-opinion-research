@@ -2,7 +2,7 @@ import { React, useEffect } from "react";
 import { Box } from "@mui/material";
 import { QuestionnaireContext } from "../common/questionnaireContext";
 import AdminPanel from "./adminPanel";
-import Test from "./test";
+import Wraper from "./wraper";
 import useAdmin from "../../hooks/useAdmin";
 
 const Admin = () => {
@@ -50,7 +50,7 @@ const Admin = () => {
         }}
       >
         <AdminPanel />
-        <Test />
+        <Wraper />
       </QuestionnaireContext.Provider>
     </Box>
   );

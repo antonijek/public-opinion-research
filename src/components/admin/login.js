@@ -1,7 +1,9 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { Box, TextField, Button, Typography, Link } from "@mui/material";
 import {
+  checkEmail,
   handlePasswordHelper,
   passwordRole,
   helperPasswordNode,
@@ -15,16 +17,40 @@ const Login = () => {
     email: "antonijek@yahoo.com",
     pass: "Antonije1",
   });
-  const [logData, setLogData] = useState();
+  const [logData, setLogData] = useState("");
   const [helperEmail, setHelperEmail] = useState(false);
   const [helperPass, setHelperPass] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    !e.value && setIsCorrect(false);
     setLogData({ ...logData, [name]: value });
   };
+
+  const handlePassword = (e) => {
+    handleChange(e);
+    handlePasswordHelper(e, passwordRole, setHelperPass);
+  };
+
+  const handleEmail = (e) => {
+    handleChange(e);
+    checkEmail(e.target.value) === false
+      ? setHelperEmail(true)
+      : setHelperEmail(false);
+    if (e.target.value.length < 1) setHelperEmail(false);
+  };
+
   const checkData = (e) => {
     e.preventDefault();
+
+    if (!logData.email || !logData.pass || helperEmail || helperPass) {
+      setIsCorrect(true);
+    } else {
+      setIsCorrect(false);
+      navigate("/admin/research");
+    }
+    /* 
     if (
       lockedData.email === logData.email &&
       lockedData.pass === logData.pass
@@ -36,16 +62,11 @@ const Login = () => {
     }
     if (lockedData.pass !== logData.pass) {
       setHelperPass(true);
-    }
-  };
-
-  const handlePassword = (e) => {
-    handleChange(e);
-    handlePasswordHelper(e, passwordRole, setHelperPass);
+    } */
   };
 
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "white", minHeight: "80vh" }}>
       <Box
         noValidate
         component="form"
@@ -69,7 +90,7 @@ const Login = () => {
           Sign in
         </Typography>
         <TextField
-          onChange={(e) => handleChange(e)}
+          onChange={(e) => handleEmail(e)}
           sx={{ my: { xs: "5%", md: "6%" } }}
           fullWidth
           type="email"
@@ -94,7 +115,16 @@ const Login = () => {
           helperText={helperPass && helperPasswordNode(helperPass)}
         />
         <br />
-
+        <Typography
+          sx={{
+            display: isCorrect ? "flex" : "none",
+            justifyContent: "center",
+            color: "#cb3464",
+            fontSize: "1.5vw",
+          }}
+        >
+          Popunite polja pravilno
+        </Typography>
         <Button
           href={"/"}
           type="submit"

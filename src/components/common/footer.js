@@ -4,7 +4,9 @@ import "../../styles/footer.css";
 const Footer = () => {
   return (
     <div className="footer">
-      <p>Copyright © 2023 Antonije Knezevic & Milutin Radonjic</p>
+      <p className="copyright">
+        Copyright © 2023 Antonije Knezevic & Milutin Radonjic
+      </p>
       <img
         src="../../social-networks.png"
         className="social-networks"

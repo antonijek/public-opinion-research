@@ -12,13 +12,15 @@ import "../../styles/profile.css";
 let token = localStorage.getItem("token");
 
 const Profile = () => {
-  const [logData, setLogData] = useState();
+  const [logData, setLogData] = useState("");
   const [helperoldPassword, setHelperOldPassword] = useState();
   const [helperNewPassword, setHelperNewPassword] = useState();
   const [helperConfirmPassword, setHelperConfirmPassword] = useState();
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    !e.value && setIsCorrect(false);
     setLogData({ ...logData, [name]: value });
   };
 
@@ -53,9 +55,9 @@ const Profile = () => {
       helperNewPassword ||
       helperConfirmPassword
     ) {
-      console.log("nije poslato");
+      setIsCorrect(true);
     } else {
-      console.log("poslato");
+      setIsCorrect(false);
       //await postData(logData, token);
     }
   };
@@ -74,7 +76,7 @@ const Profile = () => {
   };
 
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "white", minHeight: "80vh" }}>
       <Box
         noValidate
         component="form"
@@ -111,7 +113,7 @@ const Profile = () => {
         />
         <br />
         <TextField
-          //sx={{ mb: "5%" }}
+          sx={{ mb: "5%" }}
           fullWidth
           type="password"
           label="New password"
@@ -138,7 +140,16 @@ const Profile = () => {
           onChange={(e) => handleConfirmPassword(e)}
         />
         <br />
-
+        <Typography
+          sx={{
+            display: isCorrect ? "flex" : "none",
+            justifyContent: "center",
+            color: "#cb3464",
+            fontSize: "1.5vw",
+          }}
+        >
+          Popunite polja pravilno
+        </Typography>
         <Button
           href={"/"}
           type="submit"

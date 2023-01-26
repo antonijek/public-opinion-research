@@ -3,10 +3,18 @@
   width: 2vw;
   height: 2vw;
 }
+.add:hover {
+  background-color: #a8ddea;
+  cursor: pointer;
+}
 .remove {
   background-color: #db4646;
   width: 2vw;
   height: 2vw;
+}
+.remove:hover {
+  background-color: #f7a8a8;
+  cursor: pointer;
 }
 .submit-btn {
   padding: 1vw;
@@ -20,5 +28,9 @@
   background-color: #519cae;
   width: 2vw;
   height: 2vw;
-  margin-left: 65%;
+  margin-left: 58.5%;
+}
+.add-first:hover {
+  background-color: #a8ddea;
+  cursor: pointer;
 }

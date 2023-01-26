@@ -1,8 +1,7 @@
 body {
-  box-sizing: border-box;
   margin: 0;
 }
 .app {
-  box-sizing: border-box;
-  padding-bottom: 12vh;
+  background-color: #c5d6dd;
+  min-height: 80vh;
 }
