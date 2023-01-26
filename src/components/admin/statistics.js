@@ -71,12 +71,7 @@ const Statistics = () => {
           </Box>
         ))}
       </Box>
-      <Box
-        sx={{
-          pt: 1,
-          pr: 1,
-        }}
-      >
+      <Box sx={{ pt: 1, pr: 1 }}>
         <PieChart
           currentResearch={currentResearch}
           percents={percents}
