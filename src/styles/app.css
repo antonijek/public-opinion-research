@@ -4,4 +4,5 @@ body {
 .app {
   background-color: #c5d6dd;
   min-height: 80vh;
+  overflow: hidden;
 }

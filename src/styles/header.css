@@ -28,7 +28,7 @@ h2 {
 .navbar {
   display: flex;
   width: 40vw;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 @media screen and (min-width: 600px) {
@@ -37,10 +37,9 @@ h2 {
     align-items: center;
   }
   .navbar {
-    width: 20vw;
+    width: 25vw;
   }
   .ankets-tab {
-    text-decoration-line: none;
     color: rgb(86, 88, 86);
     font-size: 1.5vw;
   }
@@ -48,5 +47,8 @@ h2 {
 @media screen and (min-width: 1200px) {
   .ankets-tab {
     font-size: 1.3vw;
+  }
+  .navbar {
+    width: 20vw;
   }
 }

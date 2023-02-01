@@ -12,7 +12,6 @@ import EditQuestionnaire from "../common/editQuestionnaire";
 let token = localStorage.getItem("token");
 
 const Wraper = () => {
-  const [loader, setLoader] = useState(false);
   const {
     rows,
     setRows,
@@ -28,6 +27,8 @@ const Wraper = () => {
     changeAnswer,
     changeQuestion,
     handleChange,
+    loading,
+    setLoading,
   } = useContext(QuestionnaireContext);
 
   const columns = [
@@ -135,14 +136,14 @@ const Wraper = () => {
     }
     if (e.field === "delete") {
       try {
-        setLoader(true);
+        setLoading(true);
         await deleteData(e.id, token);
         let copy = [...rows];
         let filteredRows = copy.filter((item) => item.id !== e.id);
         setRows(filteredRows);
-        setLoader(false);
+        setLoading(false);
       } catch {
-        setLoader(false);
+        setLoading(false);
       }
     }
     if (e.field === "statistics") {
@@ -179,7 +180,7 @@ const Wraper = () => {
             checkboxSelection
             autoPageSize
             autoHeight
-            loading={loader}
+            loading={loading}
           />
         </Box>
       ) : option === 3 ? (
@@ -193,6 +194,8 @@ const Wraper = () => {
           changeAnswer={changeAnswer}
           changeQuestion={changeQuestion}
           handleChange={handleChange}
+          loading={loading}
+          setLoading={setLoading}
         />
       ) : null}
     </Box>

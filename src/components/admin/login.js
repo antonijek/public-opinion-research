@@ -2,21 +2,18 @@ import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Box, TextField, Button, Typography, Link } from "@mui/material";
-import {
-  checkEmail,
-  handlePasswordHelper,
-  passwordRole,
-  helperPasswordNode,
-} from "../../utils";
+import { checkEmail, helperPasswordNode } from "../../utils";
 import "../../styles/profile.css";
 
-const Login = () => {
+const allowedCredentials = [
+  { name: "Antonije", email: "antonijek@yahoo.com", pass: "Antonije1" },
+  { name: "Milutin", email: "milutin@yahoo.com", pass: "Milutin1" },
+];
+
+const Login = ({ setToken1 }) => {
   const navigate = useNavigate();
 
-  const [lockedData] = useState({
-    email: "antonijek@yahoo.com",
-    pass: "Antonije1",
-  });
+  const [lockedData] = useState(allowedCredentials);
   const [logData, setLogData] = useState("");
   const [helperEmail, setHelperEmail] = useState(false);
   const [helperPass, setHelperPass] = useState(false);
@@ -30,7 +27,6 @@ const Login = () => {
 
   const handlePassword = (e) => {
     handleChange(e);
-    handlePasswordHelper(e, passwordRole, setHelperPass);
   };
 
   const handleEmail = (e) => {
@@ -47,7 +43,9 @@ const Login = () => {
     if (!logData.email || !logData.pass || helperEmail || helperPass) {
       setIsCorrect(true);
     } else {
+      localStorage.setItem("admin", "Antonije");
       setIsCorrect(false);
+      setToken1(localStorage.getItem("admin"));
       navigate("/admin/research");
     }
     /* 

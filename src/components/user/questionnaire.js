@@ -1,8 +1,25 @@
-import { React } from "react";
+import { React, useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import Loader from "../common/loader";
+import { getData } from "../../api";
+
+let token = localStorage.getItem("token");
 
 const Questionnaire = ({ data, width }) => {
+  const [lastResearch, setLastResearch] = useState("");
+
+  const getAllQuestionnaires = async () => {
+    const res = await getData(token);
+    setLastResearch(res.data[res.data.length - 1]);
+  };
+
+  useEffect(() => {
+    if (data) setLastResearch(data);
+    else {
+      getAllQuestionnaires();
+    }
+  }, [data]);
+
   return (
     <Box
       sx={{
@@ -13,7 +30,7 @@ const Questionnaire = ({ data, width }) => {
         minHeight: "80vh",
       }}
     >
-      {!data && <Loader />}
+      {!lastResearch && <Loader />}
       <Typography
         sx={{
           fontSize: { xs: "5vw", sm: "3.5vw", md: "3vw" },
@@ -24,11 +41,11 @@ const Questionnaire = ({ data, width }) => {
           color: "rgb(86, 88, 86)",
         }}
       >
-        {data.title}
+        {lastResearch.title}
       </Typography>
 
-      {data.questions
-        ? data.questions.map((question, i) => (
+      {lastResearch.questions
+        ? lastResearch.questions.map((question, i) => (
             <div key={i}>
               <Box>
                 <Typography

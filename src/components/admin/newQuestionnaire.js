@@ -1,5 +1,7 @@
 import { React } from "react";
 import { Box, TextField } from "@mui/material";
+import Loader from "../common/loader";
+
 import "../../styles/new-anket.css";
 
 const NewQuestionnaire = ({
@@ -13,6 +15,7 @@ const NewQuestionnaire = ({
   changeAnswer,
   changeQuestion,
   handleChange,
+  loading,
 }) => {
   return (
     <Box sx={{ textAlign: "center", width: { width } }}>
@@ -107,9 +110,11 @@ const NewQuestionnaire = ({
             </div>
           ))
         : null}
+
       <button className="submit-btn" onClick={submitData}>
         Posalji
       </button>
+      {loading && <Loader />}
     </Box>
   );
 };

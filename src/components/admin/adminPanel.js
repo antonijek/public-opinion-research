@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import { QuestionnaireContext } from "../common/questionnaireContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
   List,
@@ -16,12 +16,15 @@ import StyleIcon from "@mui/icons-material/Style";
 import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import ScienceIcon from "@mui/icons-material/Science";
 
-const AdminPanel = () => {
+const AdminPanel = ({ token1 }) => {
+  const navigate = useNavigate();
+
   const { rows, setCurrentResearch, setOption } =
     useContext(QuestionnaireContext);
 
   const makeNewResearch = () => {
     setCurrentResearch(rows[rows.length - 1]);
+    navigate("/admin/research");
     setOption(3);
   };
 
@@ -50,7 +53,7 @@ const AdminPanel = () => {
           <Typography
             sx={{ textAlign: "center", mb: 4, mt: 2, color: "white" }}
           >
-            Admin
+            {token1}
           </Typography>
           <Divider sx={{ bgcolor: "white", mb: "6vw" }} />
           <Link to={`/admin/research`} style={{ textDecoration: "none" }}>

@@ -1,10 +1,12 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import "../../styles/header.css";
 import { Link } from "react-router-dom";
+import AccountMenu from "../admin/accountMenu";
+import { WindowSharp } from "@mui/icons-material";
 
-let token = localStorage.getItem("token");
-
-const Header = () => {
+const Header = ({ token1, setToken1 }) => {
+  console.log(token1);
+  //console.log(setToken1());
   return (
     <div className="header">
       <Link to="/">
@@ -22,13 +24,7 @@ const Header = () => {
           <h4> ANKETE </h4>
         </Link>
 
-        <Link to="/login" sx={{ color: "rgb(86, 88, 86)" }}>
-          <img
-            className="admin-logo"
-            src="https://icones.pro/wp-content/uploads/2022/07/icones-d-administration-gris.png"
-            alt="admin"
-          />
-        </Link>
+        {token1 && <AccountMenu setToken1={setToken1} />}
       </nav>
     </div>
   );

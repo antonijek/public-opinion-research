@@ -1,12 +1,14 @@
 import { React } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/occupation.css";
 import "../../styles/loader.css";
 
 const Occupation = ({ changeOccupation, occupation, style }) => {
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("token", "nesto");
-    window.location.href = "http://localhost:3000/";
+    navigate(0);
   };
 
   return (

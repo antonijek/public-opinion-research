@@ -1,7 +1,7 @@
 @keyframes move {
   0% {
     left: 100%;
-    top: 0px;
+    top: 0%;
   }
   100% {
     left: 0%;
@@ -12,6 +12,7 @@
 .age-comp {
   animation-name: move;
   animation-duration: 0.5s;
+
   position: relative;
 }
 

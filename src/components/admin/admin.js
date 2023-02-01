@@ -5,7 +5,7 @@ import AdminPanel from "./adminPanel";
 import Wraper from "./wraper";
 import useAdmin from "../../hooks/useAdmin";
 
-const Admin = () => {
+const Admin = ({ token1 }) => {
   const {
     rows,
     setRows,
@@ -21,6 +21,8 @@ const Admin = () => {
     changeAnswer,
     changeQuestion,
     handleChange,
+    loading,
+    setLoading,
   } = useAdmin();
 
   useEffect(() => {
@@ -47,9 +49,11 @@ const Admin = () => {
           changeAnswer,
           changeQuestion,
           handleChange,
+          loading,
+          setLoading,
         }}
       >
-        <AdminPanel />
+        <AdminPanel token1={token1} />
         <Wraper />
       </QuestionnaireContext.Provider>
     </Box>
