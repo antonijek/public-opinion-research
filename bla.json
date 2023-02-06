@@ -4,7 +4,6 @@
       "id": 14,
       "title": "Joko",
       "date": "25.11.2022",
-      "method": "anketa",
       "questions": [
         {
           "title": "je li peder",
@@ -40,7 +39,6 @@
       "id": 16,
       "title": "Katnic",
       "date": "25.11.2022",
-      "method": "anketa",
       "questions": [
         {
           "title": "je li peder",
@@ -76,7 +74,6 @@
       "id": 18,
       "title": "Nedjelja",
       "date": "1/25/2023",
-      "method": "anketa",
       "questions": [
         {
           "title": "Sta radite nedjeljom?",
@@ -92,6 +89,392 @@
             },
             {
               "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Nedjelja",
+      "date": "2/1/2023",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            },
+            {
+              "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Nedjelja",
+      "date": "2/1/2023",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            },
+            {
+              "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "subota",
+      "date": "2/1/2023",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            },
+            {
+              "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "title": "subota",
+      "date": "2/1/2023",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            },
+            {
+              "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "title": "subota",
+      "date": "2/4/2023",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            },
+            {
+              "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "title": "subota",
+      "date": "2/4/2023",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            },
+            {
+              "option": "Spavam."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "title": "subota",
+      "date": "2/5/2023",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
+            }
+          ]
+        },
+        {
+          "title": "Da li je nedelja prvi ili poslednji dan u sedmici?",
+          "options": [
+            {
+              "option": "Prvi"
+            },
+            {
+              "option": "Poslednji"
+            }
+          ]
+        },
+        {
+          "title": "Treba li nedelja da bude neradan dan?",
+          "options": [
+            {
+              "option": "Treba."
+            },
+            {
+              "option": "Ne treba."
+            },
+            {
+              "option": "Briga me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Nedelja",
+      "date": "2/5/2023",
+      "questions": [
+        {
+          "title": "Sta radite nedjeljom?",
+          "options": [
+            {
+              "option": "Idem u crkvu."
+            },
+            {
+              "option": "Igram kladionicu."
+            },
+            {
+              "option": "Bijem djecu."
             }
           ]
         },

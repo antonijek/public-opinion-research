@@ -4,7 +4,7 @@ import Sex from "./sex";
 import Age from "./age";
 import "../../styles/age.css";
 
-const BasicInformation = () => {
+const BasicInformation = ({ setToken }) => {
   const [age, setAge] = useState(false);
   const [sex, setSex] = useState(false);
   const [occupation, setOccupation] = useState(false);
@@ -51,6 +51,7 @@ const BasicInformation = () => {
           occupation={occupation}
           style={style}
           submitBasicInformation={submitBasicInformation}
+          setToken={setToken}
         />
       ) : null}
     </div>

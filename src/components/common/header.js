@@ -2,11 +2,8 @@ import { React, useEffect, useState } from "react";
 import "../../styles/header.css";
 import { Link } from "react-router-dom";
 import AccountMenu from "../admin/accountMenu";
-import { WindowSharp } from "@mui/icons-material";
 
 const Header = ({ token1, setToken1 }) => {
-  console.log(token1);
-  //console.log(setToken1());
   return (
     <div className="header">
       <Link to="/">

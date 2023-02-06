@@ -6,6 +6,29 @@ import Loader from "../common/loader";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+const options = {
+  responsive: true,
+
+  plugins: {
+    legend: {
+      labels: {
+        //usePointStyle: true,
+        //pointStyle: "circle",
+        //fontSize: 26,
+        boxWidth: 15,
+        boxHeight: 6,
+        // pointStyleWidth: 10,
+        template: {
+          maxWidth: 10,
+        },
+      },
+    },
+    title: {
+      display: false,
+    },
+  },
+};
+
 export const data = {
   labels: [],
   datasets: [
@@ -55,6 +78,7 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
         labels: currentResearch.questions
           ? currentResearch.questions[num].options.map((item) => item.option)
           : [],
+
         //labels: res.data.data.items_sold_by_category.map((item) => item.name),
         datasets: [
           {
@@ -80,7 +104,7 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
   }, [percents]);
 
   return (
-    <Box sx={{ backgroundColor: "white", width: "50vw" }}>
+    <Box sx={{ backgroundColor: "white", minWidth: "50vw" }}>
       <Box
         style={{
           display: "flex",
@@ -88,9 +112,9 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
         }}
       >
         {loading && <Loader />}
-        <Box style={{ width: "40vw", marginBottom: "5vw" }}>
+        <Box style={{ width: "50vw", marginBottom: "5vw" }}>
           <Typography
-            variant="h4"
+            variant="h5"
             style={{
               marginTop: "2%",
               textAlign: "center",
@@ -103,7 +127,7 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
           {loading ? (
             <CircularProgress sx={{ display: "flex", mx: "auto" }} />
           ) : null}
-          <Pie data={chart} />
+          <Pie data={chart} options={options} />
         </Box>
       </Box>
       <Box>
@@ -118,7 +142,7 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
                 sx={{
                   height: "auto",
                   mb: 0.5,
-                  fontSize: "1.5vw",
+                  fontSize: { xs: "2.5vw", sm: "1.5vw" },
                   backgroundColor: "#519cae",
 
                   ":hover": {

@@ -1,7 +1,7 @@
 .add {
   background-color: #519cae;
-  width: 2vw;
-  height: 2vw;
+  width: 25px;
+  height: 25px;
 }
 .add:hover {
   background-color: #a8ddea;
@@ -9,8 +9,8 @@
 }
 .remove {
   background-color: #db4646;
-  width: 2vw;
-  height: 2vw;
+  width: 25px;
+  height: 25px;
 }
 .remove:hover {
   background-color: #f7a8a8;
@@ -26,8 +26,8 @@
 }
 .add-first {
   background-color: #519cae;
-  width: 2vw;
-  height: 2vw;
+  width: 25px;
+  height: 25px;
   margin-left: 58.5%;
 }
 .add-first:hover {

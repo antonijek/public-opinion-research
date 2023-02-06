@@ -76,7 +76,13 @@ const Profile = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: "white", minHeight: "80vh" }}>
+    <Box
+      sx={{
+        backgroundColor: "white",
+        minHeight: "80vh",
+        pt: { xs: "20vw", sm: "5vw" },
+      }}
+    >
       <Box
         noValidate
         component="form"
@@ -84,7 +90,7 @@ const Profile = () => {
           width: { xs: "90%", sm: "60%", md: "30%" },
           mx: "auto",
           minHeight: { xs: "70vh", sm: "auto" },
-          mt: { xs: "20%", md: "3%" },
+
           boxShadow: { md: "20px 20px 50px #9E9E9E" },
           p: { xs: 2, md: 8 },
           backgroundColor: "white",

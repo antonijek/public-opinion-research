@@ -1,6 +1,6 @@
 import { React, useContext, useState } from "react";
 import Statistics from "./statistics";
-import { Box, Typography } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import EditSharpIcon from "@mui/icons-material/EditSharp";
 import { Link } from "react-router-dom";
@@ -8,10 +8,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { QuestionnaireContext } from "../common/questionnaireContext";
 import { deleteData } from "../../api/index";
 import EditQuestionnaire from "../common/editQuestionnaire";
+import SearchAndDeleteBAr from "./searchAndDeleteBAr";
 
 let token = localStorage.getItem("token");
 
 const Wraper = () => {
+  const [data, setData] = useState();
+  const [selectedRows, setSelectedRows] = useState();
   const {
     rows,
     setRows,
@@ -53,19 +56,14 @@ const Wraper = () => {
       align: "center",
       headerAlign: "center",
     },
-    {
-      field: "method",
-      headerName: "Method",
-      flex: 1,
-      align: "center",
-      headerAlign: "center",
-    },
+
     {
       field: "statistics",
       headerName: "Statistics",
       flex: 1,
       align: "center",
       headerAlign: "center",
+
       renderCell: (cellValues) => {
         return (
           <Link
@@ -74,12 +72,13 @@ const Wraper = () => {
           >
             <Typography
               sx={{
+                fontSize: { xs: "2.5vw", sm: "1.5vw", lg: "1vw" },
                 ":hover": {
                   color: "#d1e7dd",
                 },
               }}
             >
-              View details
+              Statistics
             </Typography>
           </Link>
         );
@@ -164,16 +163,23 @@ const Wraper = () => {
           }}
         >
           <h2>ALL ANKETS</h2>
+          <SearchAndDeleteBAr
+            rows={rows}
+            setRows={setRows}
+            setData={setData}
+            selectedRows={selectedRows}
+          />
           <DataGrid
             sx={{
               boxShadow: { md: "20px 20px 50px #9E9E9E" },
-              m: 3,
+              mx: { xs: 1, md: 3 },
+              my: 1,
               textAlign: "center",
               backgroundColor: "#c5d6dd",
             }}
             disableSelectionOnClick
             onCellClick={(e) => handleClick(e)}
-            rows={rows}
+            rows={data ? data : rows}
             columns={columns}
             pageSize={6}
             rowsPerPageOptions={[5]}
@@ -181,6 +187,7 @@ const Wraper = () => {
             autoPageSize
             autoHeight
             loading={loading}
+            onSelectionModelChange={(e) => setSelectedRows(e)}
           />
         </Box>
       ) : option === 3 ? (

@@ -63,7 +63,9 @@ const Statistics = () => {
   }, [pieParts]);
 
   return (
-    <Box sx={{ display: "flex", backgroundColor: "#c5d6dd" }}>
+    <Box
+      sx={{ display: { xs: "block", sm: "flex" }, backgroundColor: "#c5d6dd" }}
+    >
       <Box sx={{ padding: 1 }}>
         {cardDetails.map((card, i) => (
           <Box key={i} onClick={() => getRandomNumbers()}>

@@ -10,24 +10,24 @@ import Admin from "../admin/admin";
 import AnketList from "../user/anketList";
 import Statistics from "../admin/statistics";
 import Profile from "../admin/profile";
-import Test from "../user/test";
-
-let token = localStorage.getItem("token");
+import Home from "../user/home";
 
 const App = () => {
-  const [token1, setToken1] = useState("");
-  console.log(token1);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token1, setToken1] = useState(localStorage.getItem("admin"));
+
   return (
     <BrowserRouter>
       <Header token1={token1} setToken1={setToken1} />
 
       <div className="app">
         <Routes>
-          {token !== null ? (
-            <Route exact path="/" element={<Questionnaire />} />
-          ) : (
-            <Route exact path="/" element={<BasicInformation />} />
-          )}
+          <Route exact path="/" element={<Home token={token} />} />
+          <Route path="/anket" element={<Questionnaire />} />
+          <Route
+            path="/basic-information"
+            element={<BasicInformation setToken={setToken} />}
+          />
           <Route path="/login" element={<Login setToken1={setToken1} />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/ankets" element={<AnketList />} />

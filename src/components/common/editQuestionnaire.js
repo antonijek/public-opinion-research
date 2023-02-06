@@ -18,7 +18,7 @@ const EditQuestionnaire = ({
 }) => {
   return (
     <Box sx={{ width: "100%" }}>
-      <Box className="wraper">
+      <Box sx={{ display: { xs: "block", md: "flex" } }}>
         <NewQuestionnaire
           data={currentResearch}
           addAnswer={addAnswer}
@@ -30,9 +30,9 @@ const EditQuestionnaire = ({
           changeQuestion={changeQuestion}
           handleChange={handleChange}
           loading={loading}
-          width="50%"
+          width="100%"
         />
-        <Questionnaire data={currentResearch} width="50%" />
+        <Questionnaire data={currentResearch} width="100%" />
       </Box>
     </Box>
   );

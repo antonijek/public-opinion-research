@@ -15,8 +15,9 @@ import {
 import StyleIcon from "@mui/icons-material/Style";
 import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import ScienceIcon from "@mui/icons-material/Science";
+import HideAdminPanel from "./hideAdminPanel";
 
-const AdminPanel = ({ token1 }) => {
+const AdminPanel = ({ token1, isOpen, setIsOpen }) => {
   const navigate = useNavigate();
 
   const { rows, setCurrentResearch, setOption } =
@@ -31,10 +32,11 @@ const AdminPanel = ({ token1 }) => {
   return (
     <Box
       sx={{
-        width: { sm: "25vw", lg: "20vw" },
+        position: { xs: "absolute", md: "relative" },
+        zIndex: 1,
+        width: { xs: "35vw", sm: "25vw", md: "20vw", lg: "15vw" },
         bgcolor: "#519cae",
-        display: { xs: "none", sm: "block" },
-        minHeight: "80vh",
+        height: { xs: "100%", sm: "80vh" },
       }}
     >
       <nav aria-label="main mailbox folders">

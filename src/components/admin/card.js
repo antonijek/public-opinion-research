@@ -22,7 +22,7 @@ const OneCard = ({ title, img }) => {
         </Box>
         <Box sx={{ width: "35%", textAlign: "center" }}>
           <Typography
-            sx={{ fontSize: "2vw", color: "#519cae" }}
+            sx={{ fontSize: { xs: "4vw", sm: "2vw" }, color: "#519cae" }}
             component="div"
           >
             {title}
