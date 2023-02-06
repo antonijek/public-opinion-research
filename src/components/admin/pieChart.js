@@ -12,19 +12,10 @@ const options = {
   plugins: {
     legend: {
       labels: {
-        //usePointStyle: true,
-        //pointStyle: "circle",
-        //fontSize: 26,
+        padding: 2,
         boxWidth: 15,
         boxHeight: 6,
-        // pointStyleWidth: 10,
-        template: {
-          maxWidth: 10,
-        },
       },
-    },
-    title: {
-      display: false,
     },
   },
 };
@@ -34,6 +25,7 @@ export const data = {
   datasets: [
     {
       label: "",
+
       data: [],
       backgroundColor: [],
       borderColor: [],
@@ -65,10 +57,14 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
   const [chart, setChart] = useState(data);
   const [loading, setLoading] = useState(false);
   const [num, setNum] = useState(0);
+  const [leg, setLeg] = useState(Legend.defaults);
   const [response, setResponse] = useState();
+
+  console.log(Legend.defaults);
 
   const getStatisticData = () => {
     try {
+      setLeg({ ...leg, position: "bottom" });
       //setLoading(true);
       //const res = await getStatistic(token);
       //setResponse(res);
@@ -101,10 +97,11 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
 
   useEffect(() => {
     getStatisticData();
+    Legend.defaults.display = false;
   }, [percents]);
 
   return (
-    <Box sx={{ backgroundColor: "white", minWidth: "50vw" }}>
+    <Box sx={{ backgroundColor: "white", minWidth: "40vw", borderRadius: 1 }}>
       <Box
         style={{
           display: "flex",
@@ -114,7 +111,7 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
         {loading && <Loader />}
         <Box style={{ width: "50vw", marginBottom: "5vw" }}>
           <Typography
-            variant="h5"
+            variant="h4"
             style={{
               marginTop: "2%",
               textAlign: "center",

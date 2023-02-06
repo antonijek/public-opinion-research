@@ -152,7 +152,7 @@ const Wraper = () => {
   };
 
   return (
-    <Box sx={{ width: "100%", pb: "10vh" }}>
+    <Box sx={{ width: "100%", pb: { sm: "10vh" } }}>
       {option === 2 ? (
         <Statistics />
       ) : option === 1 ? (
@@ -162,13 +162,16 @@ const Wraper = () => {
             width: "100%",
           }}
         >
-          <h2>ALL ANKETS</h2>
-          <SearchAndDeleteBAr
-            rows={rows}
-            setRows={setRows}
-            setData={setData}
-            selectedRows={selectedRows}
-          />
+          <Box sx={{ zIndex: 0 }}>
+            <h2>ALL ANKETS</h2>
+            <SearchAndDeleteBAr
+              rows={rows}
+              setRows={setRows}
+              setData={setData}
+              selectedRows={selectedRows}
+            />
+          </Box>
+
           <DataGrid
             sx={{
               boxShadow: { md: "20px 20px 50px #9E9E9E" },

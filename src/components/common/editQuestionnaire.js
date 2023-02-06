@@ -17,23 +17,24 @@ const EditQuestionnaire = ({
   loading,
 }) => {
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ display: { xs: "block", md: "flex" } }}>
-        <NewQuestionnaire
-          data={currentResearch}
-          addAnswer={addAnswer}
-          addQuestion={addQuestion}
-          removeAnswer={removeAnswer}
-          removeQuestion={removeQuestion}
-          submitData={submitData}
-          changeAnswer={changeAnswer}
-          changeQuestion={changeQuestion}
-          handleChange={handleChange}
-          loading={loading}
-          width="100%"
-        />
-        <Questionnaire data={currentResearch} width="100%" />
-      </Box>
+    <Box
+      className="editQ"
+      sx={{ width: "100%", display: { xs: "block", sm: "flex" } }}
+    >
+      <NewQuestionnaire
+        data={currentResearch}
+        addAnswer={addAnswer}
+        addQuestion={addQuestion}
+        removeAnswer={removeAnswer}
+        removeQuestion={removeQuestion}
+        submitData={submitData}
+        changeAnswer={changeAnswer}
+        changeQuestion={changeQuestion}
+        handleChange={handleChange}
+        loading={loading}
+        width="100%"
+      />
+      <Questionnaire data={currentResearch} width="100%" />
     </Box>
   );
 };

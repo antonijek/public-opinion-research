@@ -1,5 +1,4 @@
 .admin-page {
-  display: flex;
   background-color: white;
   width: 100%;
 }
@@ -9,5 +8,8 @@
 @media screen and (min-width: 600px) {
   .admin {
     display: block;
+  }
+  .admin-page {
+    display: flex;
   }
 }

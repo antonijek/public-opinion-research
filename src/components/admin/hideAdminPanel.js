@@ -7,17 +7,15 @@ const HideAdminPanel = ({ isOpen, setIsOpen }) => {
   return (
     <Box
       sx={{
+        zIndex: 3,
         position: { xs: "relative" },
-        left: isOpen
-          ? { xs: "35vw", sm: "25vw", md: "20vw", lg: "15vw" }
-          : "0vw",
-        height: "100%",
-        width: "15px",
-        backgroundColor: "#193932",
-        display: "flex",
+        left: isOpen ? { xs: "30vw", sm: "25vw" } : "0vw",
+        height: { xs: "5vw", sm: "80vh" },
+        width: { xs: "5vw", sm: "2vw" },
+        backgroundColor: "black",
+        display: { xs: "flex", md: "none" },
         alignItems: "center",
         justifyContent: "center",
-        display: { xs: "flex", md: "none" },
       }}
     >
       {isOpen ? (

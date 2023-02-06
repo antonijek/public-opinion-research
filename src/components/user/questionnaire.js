@@ -22,6 +22,7 @@ const Questionnaire = ({ data, width }) => {
 
   return (
     <Box
+      className="quest"
       sx={{
         pb: "10vh",
         textAlign: "center",

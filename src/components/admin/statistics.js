@@ -66,14 +66,14 @@ const Statistics = () => {
     <Box
       sx={{ display: { xs: "block", sm: "flex" }, backgroundColor: "#c5d6dd" }}
     >
-      <Box sx={{ padding: 1 }}>
+      <Box sx={{ p: 1 }}>
         {cardDetails.map((card, i) => (
           <Box key={i} onClick={() => getRandomNumbers()}>
             <OneCard title={card.title} img={card.img} />
           </Box>
         ))}
       </Box>
-      <Box sx={{ pt: 1, pr: 1 }}>
+      <Box sx={{ p: 1, pl: { xs: 1, sm: 0 } }}>
         <PieChart
           currentResearch={currentResearch}
           percents={percents}
