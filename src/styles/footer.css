@@ -21,6 +21,7 @@
     width: 100%;
     bottom: 0;
     padding-top: 2vh;
+    z-index: 2;
   }
   .social-networks {
     width: 8vw;

@@ -1,8 +1,10 @@
+html,
 body {
   margin: 0;
+  padding: 0;
+  position: relative;
 }
 .app {
-  background-color: #c5d6dd;
   min-height: 80vh;
   overflow: hidden;
 }

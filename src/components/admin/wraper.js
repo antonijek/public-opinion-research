@@ -160,10 +160,19 @@ const Wraper = () => {
           sx={{
             color: "#666666",
             width: "100%",
+            pt: 2,
           }}
         >
           <Box sx={{ zIndex: 0 }}>
-            <h2>ALL ANKETS</h2>
+            <Typography
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                fontSize: { xs: "5vw", sm: "3vw", lg: "2vw" },
+              }}
+            >
+              ALL ANKETS
+            </Typography>
             <SearchAndDeleteBAr
               rows={rows}
               setRows={setRows}

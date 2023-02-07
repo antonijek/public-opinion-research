@@ -32,12 +32,12 @@ const AdminPanel = ({ token1, isOpen, setIsOpen }) => {
   return (
     <Box
       sx={{
-        position: { xs: "absolute", md: "relative" },
+        position: { xs: "absolute", sm: "absolute", md: "relative" },
         zIndex: 2,
 
         width: { xs: "35vw", sm: "25vw", md: "20vw", lg: "15vw" },
         bgcolor: "#519cae",
-        height: { xs: "auto", sm: "80vh" },
+        height: { xs: "auto", sm: "100%" },
       }}
     >
       <nav aria-label="main mailbox folders">

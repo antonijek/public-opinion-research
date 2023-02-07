@@ -101,7 +101,7 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
   }, [percents]);
 
   return (
-    <Box sx={{ backgroundColor: "white", minWidth: "40vw", borderRadius: 1 }}>
+    <Box sx={{ backgroundColor: "white", minWidth: "50vw", borderRadius: 1 }}>
       <Box
         style={{
           display: "flex",
@@ -109,7 +109,7 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
         }}
       >
         {loading && <Loader />}
-        <Box style={{ width: "50vw", marginBottom: "5vw" }}>
+        <Box sx={{ width: { xs: "80vw", sm: "40vw" }, marginBottom: "5vw" }}>
           <Typography
             variant="h4"
             style={{

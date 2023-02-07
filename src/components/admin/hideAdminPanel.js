@@ -8,9 +8,10 @@ const HideAdminPanel = ({ isOpen, setIsOpen }) => {
     <Box
       sx={{
         zIndex: 3,
-        position: { xs: "relative" },
+        position: { xs: "absolute" },
         left: isOpen ? { xs: "30vw", sm: "25vw" } : "0vw",
-        height: { xs: "5vw", sm: "80vh" },
+
+        height: { xs: "5vw", sm: "100%" },
         width: { xs: "5vw", sm: "2vw" },
         backgroundColor: "black",
         display: { xs: "flex", md: "none" },

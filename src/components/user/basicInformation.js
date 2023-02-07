@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import Occupation from "./occupation";
 import Sex from "./sex";
 import Age from "./age";
+import "../../styles/basic-information.css";
 import "../../styles/age.css";
 
 const BasicInformation = ({ setToken }) => {
@@ -28,6 +29,8 @@ const BasicInformation = ({ setToken }) => {
   const submitBasicInformation = (e) => {
     changeSlider("question");
   };
+
+  console.log(style);
 
   return (
     <div className="container">
