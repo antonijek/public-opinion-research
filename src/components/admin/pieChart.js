@@ -57,14 +57,9 @@ const PieChart = ({ currentResearch, percents, setPieParts }) => {
   const [chart, setChart] = useState(data);
   const [loading, setLoading] = useState(false);
   const [num, setNum] = useState(0);
-  const [leg, setLeg] = useState(Legend.defaults);
-  const [response, setResponse] = useState();
-
-  console.log(Legend.defaults);
 
   const getStatisticData = () => {
     try {
-      setLeg({ ...leg, position: "bottom" });
       //setLoading(true);
       //const res = await getStatistic(token);
       //setResponse(res);
