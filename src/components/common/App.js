@@ -11,6 +11,8 @@ import AnketList from "../user/anketList";
 import Statistics from "../admin/statistics";
 import Profile from "../admin/profile";
 import Home from "../user/home";
+import ReducerTest from "../admin/reducerTest";
+import TestReduser from "../admin/testReduser";
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -31,6 +33,8 @@ const App = () => {
           <Route path="/login" element={<Login setToken1={setToken1} />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/ankets" element={<AnketList />} />
+          <Route path="/reducer" element={<ReducerTest />} />
+          <Route path="/testreducer" element={<TestReduser />} />
           <Route
             exact
             path="/admin/research"

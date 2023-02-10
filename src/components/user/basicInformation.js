@@ -1,58 +1,76 @@
-import { React, useState } from "react";
+import { React, useState, useReducer } from "react";
 import Occupation from "./occupation";
 import Sex from "./sex";
 import Age from "./age";
 import "../../styles/basic-information.css";
 import "../../styles/age.css";
+import { style } from "@mui/system";
+
+const initialInfo = {
+  age: false,
+  sex: false,
+  occupation: false,
+  slider: "age",
+  style: "",
+};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "age":
+      return { ...state, age: action.age };
+    case "sex":
+      return { ...state, sex: action.sex };
+    case "occupation":
+      return { ...state, occupation: action.occupation };
+    case "slider":
+      return { ...state, slider: action.slider };
+    case "style":
+      return { ...state, style: action.style };
+    default:
+      return initialInfo;
+  }
+};
 
 const BasicInformation = ({ setToken }) => {
-  const [age, setAge] = useState(false);
-  const [sex, setSex] = useState(false);
-  const [occupation, setOccupation] = useState(false);
-  const [slider, setSlider] = useState("age");
-  const [style, setStyle] = useState("");
+  const [state, dispach] = useReducer(reducer, initialInfo);
 
   const changeAge = (e) => {
-    setAge(e.target.value);
+    dispach({ type: "age", age: e.target.value });
   };
   const changeSex = (e) => {
-    setSex(e.target.value);
+    dispach({ type: "sex", sex: e.target.value });
   };
   const changeOccupation = (e) => {
-    setOccupation(e.target.value);
+    dispach({ type: "occupation", occupation: e.target.value });
   };
   const changeSlider = (str) => {
-    console.log(str);
-    setSlider(str);
-    setStyle("age-comp");
+    dispach({ type: "slider", slider: str });
+    dispach({ type: "style", style: "age-comp" });
   };
   const submitBasicInformation = (e) => {
     changeSlider("question");
   };
 
-  console.log(style);
-
   return (
     <div className="container">
-      {slider === "age" ? (
+      {state.slider === "age" ? (
         <Age
           changeAge={changeAge}
           changeSlider={changeSlider}
-          age={age}
-          style={style}
+          age={state.age}
+          style={state.style}
         />
-      ) : slider === "sex" ? (
+      ) : state.slider === "sex" ? (
         <Sex
           changeSex={changeSex}
           changeSlider={changeSlider}
-          sex={sex}
-          style={style}
+          sex={state.sex}
+          style={state.style}
         />
-      ) : slider === "occupation" ? (
+      ) : state.slider === "occupation" ? (
         <Occupation
           changeOccupation={changeOccupation}
-          occupation={occupation}
-          style={style}
+          occupation={state.occupation}
+          style={state.style}
           submitBasicInformation={submitBasicInformation}
           setToken={setToken}
         />
